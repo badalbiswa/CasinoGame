@@ -1,4 +1,5 @@
-# Template for CPSC2720 Assignments, Labs, and Projects
+# Template for CPSC2720 Major Project: Text-based Adventure Game
+
 
 Last Updated: 2022-12-15 by Nicole Wilson &lt;n.wilson@uleth.ca&gt;
 
