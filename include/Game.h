@@ -11,7 +11,6 @@ class Game {
  public:
     Game();
     void play();
-    void createRooms(); // Declaration of createRooms function
 };
 
 #endif
