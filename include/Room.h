@@ -5,6 +5,9 @@
 class Room {
  private:
     std::string name;
+    int locX;
+    int locY;
+
  public:
     Room(const std::string& name);
     std::string getName() const;
