@@ -24,7 +24,7 @@ borderSouth = S;
 borderWest = W;
     }
 
-void createRooms(); // Declaration of createRooms function
+std::string getName() const;
 };
 
 #endif

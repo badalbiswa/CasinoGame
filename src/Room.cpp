@@ -1,10 +1,16 @@
 #include "Room.h"
 
-//void createRooms() {
-    Room CasinoFloor = Room("Casino Floor", 1, 1,
-    "Slots", "Bar", "Tables", "Outside");
-    Room Bar = Room("Casino Floor", 2, 1,
-    "Bathrooms", "Counter", "Bar Outside Exit", "Casino Floor");
-    Room Outside = Room("Outside", 2, 1,
-    "Border", "Casino Floor", "Parking Lot", "Borders");
-//}
+Room::Room(std::string name, int x, int y, std::string N, std::string E,
+           std::string S, std::string W) {
+    Name = name;
+    locX = x;
+    locY = y;
+    borderNorth = N;
+    borderEast = E;
+    borderSouth = S;
+    borderWest = W;
+}
+
+std::string Room::getName() const {
+    return Name;
+}

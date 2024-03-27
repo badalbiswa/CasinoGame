@@ -3,10 +3,10 @@
 #include <iostream>
 #include <sstream> // For std::stringstream
 
-Game::Game() {
-    playerX = 0;
-    playerY = 0;
-}
+Game::Game() : CasinoFloor("Casino Floor", 1, 1, "Slots", "Bar", "Tables", "Outside"),
+               Bar("Bar", 2, 1, "Bathrooms", "Counter", "Bar Outside Exit", "Casino Floor"),
+               Outside("Outside", 2, 1, "Border", "Casino Floor", "Parking Lot", "Borders") {}
+
 
 void Game::play() {
     // Game loop
