@@ -1,13 +1,14 @@
 #ifndef ROOM_H
 #define ROOM_H
 #include <string>
+#include "Player.h"
 
 class Room
 {
 private:
     std::string Name;
-    int locX;
-    int locY;
+    int RoomX;
+    int RoomY;
     std::string borderNorth;
     std::string borderEast;
     std::string borderSouth;
@@ -18,8 +19,8 @@ public:
          std::string S, std::string W)
     {
         Name = name;
-        locX = x;
-        locY = y;
+        RoomX = x;
+        RoomY = y;
         borderNorth = N;
         borderEast = E;
         borderSouth = S;
@@ -29,6 +30,16 @@ public:
     std::string getName()
     {
         return Name;
+    }
+
+    int getX()
+    {
+        return RoomX;
+    }
+
+    int getY()
+    {
+        return RoomY;
     }
 };
 

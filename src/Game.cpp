@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "Room.h"
+#include "Player.h"
 #include <iostream>
 #include <sstream>
 
@@ -9,8 +10,11 @@ void Game::play()
 {
     // Game loop
     createRooms();
+    Player User = createPlayer();
+
     while (true)
     {
+        std::cout << "Player is in " << User.getRoom();
         return;
         /*
         std::cout << "You are in ";

@@ -7,8 +7,9 @@ class Game
 private:
 public:
    Game();
-   void play();
    void createRooms();
+   Player createPlayer();
+   void play();
 };
 
 #endif

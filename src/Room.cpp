@@ -13,5 +13,4 @@ void Game::createRooms()
     Room Bar = Room("Casino Floor", 3, 0,
                     "Bathrooms", "Counter", "Bar Outside Exit", "Casino Floor");
 
-    std::cout << CasinoFloor.getName();
 }
