@@ -27,7 +27,7 @@ public:
         borderWest = W;
     }
 
-    std::string getName()
+    std::string getName() const
     {
         return Name;
     }
@@ -40,6 +40,23 @@ public:
     int getY()
     {
         return RoomY;
+    }
+
+    std::string getN()
+    {
+        return borderNorth;
+    }
+    std::string getE()
+    {
+        return borderEast;
+    }
+    std::string getS()
+    {
+        return borderSouth;
+    }
+    std::string getW()
+    {
+        return borderWest;
     }
 };
 
