@@ -2,8 +2,9 @@
 #define ROOM_H
 #include <string>
 
-class Room {
- private:
+class Room
+{
+private:
     std::string Name;
     int locX;
     int locY;
@@ -12,19 +13,23 @@ class Room {
     std::string borderSouth;
     std::string borderWest;
 
- public:
-  Room(std::string name, int x, int y, std::string N, std::string E,
-    std::string S, std::string W) {
-Name = name;
-locX = x;
-locY = y;
-borderNorth = N;
-borderEast = E;
-borderSouth = S;
-borderWest = W;
+public:
+    Room(std::string name, int x, int y, std::string N, std::string E,
+         std::string S, std::string W)
+    {
+        Name = name;
+        locX = x;
+        locY = y;
+        borderNorth = N;
+        borderEast = E;
+        borderSouth = S;
+        borderWest = W;
     }
 
-std::string getName() const;
+    std::string getName()
+    {
+        return Name;
+    }
 };
 
 #endif

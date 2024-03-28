@@ -1,16 +1,18 @@
 #include "Game.h"
 #include "Room.h"
 #include <iostream>
-#include <sstream> // For std::stringstream
+#include <sstream>
 
-Game::Game() : CasinoFloor("Casino Floor", 1, 1, "Slots", "Bar", "Tables", "Outside"),
-               Bar("Bar", 2, 1, "Bathrooms", "Counter", "Bar Outside Exit", "Casino Floor"),
-               Outside("Outside", 2, 1, "Border", "Casino Floor", "Parking Lot", "Borders") {}
+Game::Game() {}
 
-
-void Game::play() {
+void Game::play()
+{
     // Game loop
-    while (true) {
+    createRooms();
+    while (true)
+    {
+        return;
+        /*
         std::cout << "You are in ";
         // Get user input for direction
         std::cout << "Enter a direction (N/E/S/W): ";
@@ -30,6 +32,6 @@ void Game::play() {
         } else {
             std::cout << "Invalid direction or boundary reached." << std::endl;
         }
+        */
     }
 }
-
