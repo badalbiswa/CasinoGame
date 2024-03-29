@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <string>
+#include <iostream>
 
 class Player
 {
@@ -27,7 +28,6 @@ public:
       Thirst = thirst;
       Drunkness = drunk;
       Room = room;
-      
    }
 
    int getX()
@@ -45,7 +45,7 @@ public:
       return Room;
    }
 
-   void setPosition(int x, int y) 
+   void setPosition(int x, int y)
    {
       PlayerX = x;
       PlayerY = y;
@@ -54,6 +54,21 @@ public:
    void updateRoom(std::string room)
    {
       Room = room;
+   }
+
+   void getInfo()
+   {
+      std::cout << "Your Stats\nChips: " << Chips << "\nHealth: " << Health << "\nDrunkness: " << Drunkness << "\n";
+   }
+
+   int getChips()
+   {
+      return Chips;
+   }
+
+   void setChips(int chips)
+   {
+      Chips = chips;
    }
 };
 

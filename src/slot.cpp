@@ -1,165 +1,176 @@
-// /**
-//  * @author Renzo Cattoni [renzo.cattoni@uleth.ca]
-//  * @author Badal Biswa [badal.biswa@uleth.ca]
-//  * @date 2024-3-27
-//  */
- 
-// #include <iostream>
-// #include <cstdlib>
-// #include <ctime>
-// #include <limits> 
+/**
+ * @author Renzo Cattoni [renzo.cattoni@uleth.ca]
+ * @author Badal Biswa [badal.biswa@uleth.ca]
+ * @date 2024-3-27
+ */
 
-// using namespace std;
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <limits>
+#include "Game.h"
+#include "Room.h"
+#include "Player.h"
 
-// int chips = 200;  // Starting number of chips
+int chips; // Starting number of chips
 
-// int getRandomNumber(int min, int max) {
-//   static const double fraction = 1.0 / (RAND_MAX + 1.0);
-//   return min + static_cast<int>((max - min + 1) * (rand() * fraction));
-// }
+int getRandomNumber(int min, int max)
+{
+    static const double fraction = 1.0 / (RAND_MAX + 1.0);
+    return min + static_cast<int>((max - min + 1) * (rand() * fraction));
+}
 
-// // Function to display slot machine symbols
-// void displaySymbols(int symbol) {
-//   switch (symbol) {
-//     case 0:
-//       cout << "🍒 ";
-//       break;
-//     case 1:
-//       cout << "🍊 ";
-//       break;
-//     case 2:
-//       cout << "🍋 ";
-//       break;
-//     case 3:
-//       cout << "🍇 ";
-//       break;
-//     case 4:
-//       cout << "🍉 ";
-//       break;
-//     case 5:
-//       cout << "🔔 ";
-//       break;
-//     case 6:
-//       cout << "💎 ";
-//       break;
-//   }
-// }
+// Function to display slot machine symbols
+void displaySymbols(int symbol)
+{
+    switch (symbol)
+    {
+    case 0:
+        std::cout << "🍒 ";
+        break;
+    case 1:
+        std::cout << "🍊 ";
+        break;
+    case 2:
+        std::cout << "🍋 ";
+        break;
+    case 3:
+        std::cout << "🍇 ";
+        break;
+    case 4:
+        std::cout << "🍉 ";
+        break;
+    case 5:
+        std::cout << "🔔 ";
+        break;
+    case 6:
+        std::cout << "💎 ";
+        break;
+    }
+}
 
-// // Function to play the slot machine
-// void playSlotMachine(int bet) {
-//   if (chips == 0) {
-//     cout << "You are out of chips. Game over!\n";
-//     return;
-//   }
+// Function to play the slot machine
+void playSlotMachine(int bet)
+{
+    if (chips == 0)
+    {
+        std::cout << "You are out of chips. Game over!\n";
+        return;
+    }
 
-//   if (bet > chips) {
-//     cout << "Not enough chips to place the bet. Please bet again." << endl;
-//     return;
-//   }
+    if (bet > chips)
+    {
+        std::cout << "Not enough chips to place the bet. Please bet again." << std::endl;
+        return;
+    }
 
-//   cout << "Press 1 to spin the reels.";
-//   int spin;
-//   cin >> spin;
-//   if (spin != 1) {
-//     cout << "Invalid choice. Please enter 1 to spin the reels." << endl;
-//     playSlotMachine(bet);  // Ask for input again
-//     return;
-//   }
+    srand(time(0)); // Seed the random number generator
 
-//   srand(time(0));  // Seed the random number generator
+    int reels[3];
 
-//   int reels[3];
+    // Spin the reels
+    for (int i = 0; i < 3; ++i)
+    {
+        reels[i] = getRandomNumber(0, 6); // Get a random number representing a symbol
+    }
 
-//   // Spin the reels
-//   for (int i = 0; i < 3; ++i) {
-//     reels[i] = getRandomNumber(0, 6);  // Get a random number representing a symbol
-//   }
+    // Display the result
+    std::cout << "Reels: ";
+    for (int i = 0; i < 3; ++i)
+    {
+        displaySymbols(reels[i]); // Display the symbol
+    }
 
-//   // Display the result
-//   cout << "Reels: ";
-//   for (int i = 0; i < 3; ++i) {
-//     displaySymbols(reels[i]);  // Display the symbol
-//   }
+    // Check for win
+    if (reels[0] == reels[1] && reels[1] == reels[2])
+    {
+        std::cout << "\nCongratulations! You win!\n";
+        chips += (bet * 10); // Win 10 times the bet
+    }
+    else
+    {
+        std::cout << "\nSorry, you lose.\n";
+        chips -= bet; // Lose the bet amount
+    }
 
-//   // Check for win
-//   if (reels[0] == reels[1] && reels[1] == reels[2]) {
-//     cout << "\nCongratulations! You win!\n";
-//     chips += (bet * 10);  // Win 10 times the bet
-//   } else {
-//     cout << "\nSorry, you lose.\n";
-//     chips -= bet;  // Lose the bet amount
-//   }
+    std::cout << "Remaining chips: " << chips << std::endl; // Display remaining chips
+}
 
-//   cout << "Remaining chips: " << chips << endl;  // Display remaining chips
-// }
+void Game::slotMachine(Player User)
+{
+    chips = User.getChips();
+    User.setChips(chips);
+    int choice;
+    std::cout << "\n------------------------------------------\n";
+    std::cout << "       Welcome to the Slot Machine!\n";
+    std::cout << "------------------------------------------\n";
 
-// int main() {
-//   int choice;
+    std::cout << "Current chips: " << chips << std::endl;
 
-//   cout << "\n------------------------------------------\n";
-//   cout << "       Welcome to the Slot Machine!\n";
-//   cout << "------------------------------------------\n";
+    do
+    {
+        std::cout << "Choose your bet amount:\n";
+        std::cout << "1. 10 chips\n";
+        std::cout << "2. 20 chips\n";
+        std::cout << "3. 50 chips\n";
+        std::cout << "4. 100 chips\n";
+        std::cout << "5. 500 chips\n";
+        std::cout << "6. 1000 chips\n";
+        std::cout << "Enter your choice: ";
 
-//   cout << "Current chips: " << chips << endl;
+        // Keep asking for input until a valid choice is entered
+        while (!(std::cin >> choice) || choice < 1 || choice > 6)
+        {
+            std::cout << "Invalid choice: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
 
-//   do {
-//     cout << "Choose your bet amount:\n";
-//     cout << "1. 10 chips\n";
-//     cout << "2. 20 chips\n";
-//     cout << "3. 50 chips\n";
-//     cout << "4. 100 chips\n";
-//     cout << "5. 500 chips\n";
-//     cout << "6. 1000 chips\n";
-//     cout << "Enter your choice: ";
+        int bet;
+        switch (choice)
+        {
+        case 1:
+            bet = 10;
+            break;
+        case 2:
+            bet = 20;
+            break;
+        case 3:
+            bet = 50;
+            break;
+        case 4:
+            bet = 100;
+            break;
+        case 5:
+            bet = 500;
+            break;
+        case 6:
+            bet = 1000;
+            break;
+        }
 
-//     // Keep asking for input until a valid choice is entered
-//     while (!(cin >> choice) || choice < 1 || choice > 6) {
-//       cout << "Invalid choice: ";
-//       cin.clear();
-//       cin.ignore(numeric_limits<streamsize>::max(), '\n');
-//     }
+        playSlotMachine(bet);
 
-//     int bet;
-//     switch (choice) {
-//       case 1:
-//         bet = 10;
-//         break;
-//       case 2:
-//         bet = 20;
-//         break;
-//       case 3:
-//         bet = 50;
-//         break;
-//       case 4:
-//         bet = 100;
-//         break;
-//       case 5:
-//         bet = 500;
-//         break;
-//       case 6:
-//         bet = 1000;
-//         break;
-//     }
+        if (chips > 0)
+        {
+            std::cout << "\nDo you want to continue?\n";
+            std::cout << "1. Keep Playing\n";
+            std::cout << "2. Exit\n";
+            std::cout << "Enter your choice: ";
+            std::cin >> choice;
+            if (choice != 1 && choice != 2)
+            {
+                std::cout << "Invalid choice. Exiting...\n";
+                choice = 2;
+            }
+        }
+        else
+        {
+            std::cout << "You are out of chips. Game over!\n";
+            choice = 2;
+        }
+    } while (choice == 1);
 
-//     playSlotMachine(bet);
-
-//     if (chips > 0) {
-//       cout << "\nDo you want to continue?\n";
-//       cout << "1. Keep Playing\n";
-//       cout << "2. Exit\n";
-//       cout << "Enter your choice: ";
-//       cin >> choice;
-//       if (choice != 1 && choice != 2) {
-//         cout << "Invalid choice. Exiting...\n";
-//         choice = 2;
-//       }
-//     } else {
-//       cout << "You are out of chips. Game over!\n";
-//       choice = 2;
-//     }
-//   } while (choice == 1);
-
-//   cout << "Thanks for playing!\n";
-
-//   return 0;
-// }
+    std::cout << "Thanks for playing!\n";
+    return;
+}

@@ -7,13 +7,16 @@
 class Game
 {
 private:
-std::vector<Room> rooms;
+   std::vector<Room> rooms;
+
 public:
    Game();
    void createRooms();
    Player createPlayer();
-   Room getCurrentRoom(const std::string& room);
+   Room getCurrentRoom(const std::string &room);
    void play();
+   void slotMachine(Player User);
+   void roomChecks(Room curRoom, Player User);
 };
 
 #endif

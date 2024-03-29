@@ -15,7 +15,7 @@ void Game::play()
     while (true)
     {
         Room curRoom = getCurrentRoom(User.getRoom());
-
+        roomChecks(curRoom, User);
         std::cout << "Player is in " << curRoom.getName() << std::endl;
 
         if (!(curRoom.getN() == "Border"))
@@ -54,6 +54,10 @@ void Game::play()
         else if ((direction == "w" || direction == "W") && curRoom.getW() != "Border")
         {
             User.updateRoom(curRoom.getW());
+        }
+        else if (direction == "i" || direction == "I")
+        {
+            User.getInfo();
         }
         else
         {
