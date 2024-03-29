@@ -10,13 +10,14 @@ void Game::play()
 {
     // Game loop
     createRooms();
+    createNPCs();
     Player User = createPlayer();
 
     while (true)
     {
         Room curRoom = getCurrentRoom(User.getRoom());
         roomChecks(curRoom, User);
-        std::cout << "Player is in " << curRoom.getName() << std::endl;
+        std::cout << "You are at: " << curRoom.getName() << std::endl;
 
         if (!(curRoom.getN() == "Border"))
         {

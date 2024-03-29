@@ -2,6 +2,7 @@
 #define PLAYER_H
 #include <string>
 #include <iostream>
+#include "Item.h"
 
 class Player
 {
@@ -15,9 +16,10 @@ private:
    int PlayerX;
    int PlayerY;
    std::string Room;
+   //std::vector<Item> Items;
 
 public:
-   Player(std::string name, int chips, int money, int hp, int thirst, int drunk, int x, int y, std::string room)
+   Player(std::string name, int chips, int money, float hp, float thirst, float drunk, int x, int y, std::string room)
    {
       Name = name;
       PlayerX = x;
