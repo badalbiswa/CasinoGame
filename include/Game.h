@@ -13,15 +13,14 @@ private:
 public:
    Game();
    void createRooms();
-   //Player createPlayer();
    void createNPCs();
    Room getCurrentRoom(const std::string &room);
    void play();
-   void slotMachine(Player User);
    void bar(Player User);
-   void roomChecks(Room curRoom, Player User);
-   void blackJack(Player User);
-   Room move(Room curRoom, Player User);
+   int slotMachine(Player User);
+   int blackJack(Player User);
+   void roomChecks(Room curRoom, Player& User);
+   void move(Room curRoom, Player& User);
 };
 
 #endif

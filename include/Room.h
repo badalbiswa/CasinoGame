@@ -6,8 +6,6 @@ class Room
 {
 private:
     std::string Name;
-    int RoomX;
-    int RoomY;
     std::string borderNorth;
     std::string borderEast;
     std::string borderSouth;
@@ -16,16 +14,14 @@ private:
 public:
 
     Room()
-        : Name(""), RoomX(0), RoomY(0),
+        : Name(""),
           borderNorth(""), borderEast(""),
           borderSouth(""), borderWest("") {}
           
-    Room(std::string name, int x, int y, std::string N, std::string E,
+    Room(std::string name, std::string N, std::string E,
          std::string S, std::string W)
     {
         Name = name;
-        RoomX = x;
-        RoomY = y;
         borderNorth = N;
         borderEast = E;
         borderSouth = S;
@@ -36,17 +32,6 @@ public:
     {
         return Name;
     }
-
-    int getX()
-    {
-        return RoomX;
-    }
-
-    int getY()
-    {
-        return RoomY;
-    }
-
     std::string getN()
     {
         return borderNorth;

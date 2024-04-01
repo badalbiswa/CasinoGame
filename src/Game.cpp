@@ -17,6 +17,6 @@ void Game::play()
     {
         curRoom = User.getRoom();
         roomChecks(curRoom, User);
-        User.updateRoom(move(curRoom, User));
+        move(curRoom, User);
     }
 }

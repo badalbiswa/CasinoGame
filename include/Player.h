@@ -17,14 +17,14 @@ private:
    float Thirst;
    float Drunkness;
    Room CurrentRoom;
-   //std::vector<Item> Items;
+   std::vector<Item> Items;
 
 public:
 
    Player()
            : Name(""), Chips(20000), Money(20000),
           Health(100), Thirst(100), Drunkness(0),
-          CurrentRoom("Outside", 0, 0, "Border", "Casino Entrance", "Parking Lot", "Border") {}
+          CurrentRoom("Outside", "Border", "Casino Entrance", "Parking Lot", "Border") {}
 
    Room getRoom()
    {

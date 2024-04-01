@@ -9,12 +9,12 @@ void Game::createRooms()
 
     rooms.clear();
 
-    rooms.push_back(Room("Outside", 0, 0, "Border", "Casino Entrance", "Parking Lot", "Border"));
-    rooms.push_back(Room("Casino Entrance", 1, 0, "Border", "Casino Floor", "Border", "Outside"));
-    rooms.push_back(Room("Casino Floor", 2, 0, "Slots", "Bar", "Tables", "Outside"));
-    rooms.push_back(Room("Bar", 3, 0, "Bathrooms", "Bar Counter", "Bar Outside Exit", "Casino Floor"));
-    rooms.push_back(Room("Slots", 2, 1, "Border", "Border", "Casino Floor", "Border"));
-    rooms.push_back(Room("Bar Counter", 4, 0, "Border", "Border", "Border", "Bar"));
+    rooms.push_back(Room("Outside", "Border", "Casino Entrance", "Parking Lot", "Border"));
+    rooms.push_back(Room("Casino Entrance", "Border", "Casino Floor", "Border", "Outside"));
+    rooms.push_back(Room("Casino Floor", "Slots", "Bar", "Tables", "Outside"));
+    rooms.push_back(Room("Bar", "Bathrooms", "Bar Counter", "Bar Outside Exit", "Casino Floor"));
+    rooms.push_back(Room("Slots", "Border", "Border", "Casino Floor", "Border"));
+    rooms.push_back(Room("Bar Counter", "Border", "Border", "Border", "Bar"));
 }
 
 Room Game::getCurrentRoom(const std::string &room)
@@ -30,11 +30,11 @@ Room Game::getCurrentRoom(const std::string &room)
     throw std::runtime_error("Room '" + room + "' not found.");
 }
 
-void Game::roomChecks(Room curRoom, Player User)
+void Game::roomChecks(Room curRoom, Player& User)
 {
     if (curRoom.getName() == "Slots")
     {
-        slotMachine(User);
+        User.setChips(slotMachine(User));
     }
     else if (curRoom.getName() == "Bar Counter")
     {
@@ -46,7 +46,7 @@ void Game::roomChecks(Room curRoom, Player User)
     }
 }
 
-Room Game::move(Room curRoom, Player User)
+void Game::move(Room curRoom, Player& User)
 {
 
     while (true)
@@ -77,22 +77,26 @@ Room Game::move(Room curRoom, Player User)
         if ((direction == "n" || direction == "N") && curRoom.getN() != "Border")
         {
             std::cout << "You walked north, over to " << curRoom.getN() << "...\n";
-            return getCurrentRoom(curRoom.getN());
+            User.updateRoom(getCurrentRoom(curRoom.getN()));
+            return;
         }
         else if ((direction == "e" || direction == "E") && curRoom.getE() != "Border")
         {
             std::cout << "You walked east, over to " << curRoom.getE() << "...\n";
-            return getCurrentRoom(curRoom.getE());
+            User.updateRoom(getCurrentRoom(curRoom.getE()));
+            return;
         }
         else if ((direction == "s" || direction == "S") && curRoom.getS() != "Border")
         {
             std::cout << "You walked south, over to " << curRoom.getS() << "...\n";
-            return getCurrentRoom(curRoom.getS());
+            User.updateRoom(getCurrentRoom(curRoom.getS()));
+            return;
         }
         else if ((direction == "w" || direction == "W") && curRoom.getW() != "Border")
         {
             std::cout << "You walked west, over to " << curRoom.getW() << "...\n";
-            return getCurrentRoom(curRoom.getW());
+            User.updateRoom(getCurrentRoom(curRoom.getW()));
+            return;
         }
         else if (direction == "i" || direction == "I")
         {
