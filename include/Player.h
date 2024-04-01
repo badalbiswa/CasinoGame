@@ -3,6 +3,9 @@
 #include <string>
 #include <iostream>
 #include "Item.h"
+#include "Room.h"
+
+class Room;
 
 class Player
 {
@@ -13,54 +16,29 @@ private:
    float Health;
    float Thirst;
    float Drunkness;
-   int PlayerX;
-   int PlayerY;
-   std::string Room;
+   Room CurrentRoom;
    //std::vector<Item> Items;
 
 public:
-   Player(std::string name, int chips, int money, float hp, float thirst, float drunk, int x, int y, std::string room)
+
+   Player()
+           : Name(""), Chips(20000), Money(20000),
+          Health(100), Thirst(100), Drunkness(0),
+          CurrentRoom("Outside", 0, 0, "Border", "Casino Entrance", "Parking Lot", "Border") {}
+
+   Room getRoom()
    {
-      Name = name;
-      PlayerX = x;
-      PlayerY = y;
-      Chips = chips;
-      Money = money;
-      Health = hp;
-      Thirst = thirst;
-      Drunkness = drunk;
-      Room = room;
+      return CurrentRoom;
    }
 
-   int getX()
+   void updateRoom(Room room)
    {
-      return PlayerX;
-   }
-
-   int getY()
-   {
-      return PlayerY;
-   }
-
-   std::string getRoom()
-   {
-      return Room;
-   }
-
-   void setPosition(int x, int y)
-   {
-      PlayerX = x;
-      PlayerY = y;
-   }
-
-   void updateRoom(std::string room)
-   {
-      Room = room;
+      CurrentRoom = room;
    }
 
    void getInfo()
    {
-      std::cout << "Your Stats\nChips: " << Chips << "\nHealth: " << Health << "\nDrunkness: " << Drunkness << "\n";
+      std::cout << "You checked your stats...\n\nCurrent Location: "<< CurrentRoom.getName()<<"\nChips: " << Chips << "\nHealth: " << Health << "\nDrunkness: " << Drunkness << "\n";
    }
 
    int getChips()
@@ -72,6 +50,7 @@ public:
    {
       Chips = chips;
    }
+   
 };
 
 #endif

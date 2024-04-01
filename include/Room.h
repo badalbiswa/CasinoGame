@@ -1,7 +1,6 @@
 #ifndef ROOM_H
 #define ROOM_H
 #include <string>
-#include "Player.h"
 
 class Room
 {
@@ -15,6 +14,12 @@ private:
     std::string borderWest;
 
 public:
+
+    Room()
+        : Name(""), RoomX(0), RoomY(0),
+          borderNorth(""), borderEast(""),
+          borderSouth(""), borderWest("") {}
+          
     Room(std::string name, int x, int y, std::string N, std::string E,
          std::string S, std::string W)
     {

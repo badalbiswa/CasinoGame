@@ -11,6 +11,9 @@
 #include <limits>  
 #include "card.h"
 #include "deck.h"
+#include "Game.h"
+#include "Room.h"
+#include "Player.h"
 
 // Function declaration
 Card generateRandomCard();
@@ -176,7 +179,7 @@ Card generateRandomCard() {
     return Card{randomRank, randomSuit};
 }
 
-int main() {
+void Game::blackJack(Player User) {
     srand(time(nullptr)); // Seed the random number generator
 
     char playAgain;
@@ -310,6 +313,6 @@ int main() {
 
     } while (playAgain == 'y');
 
-    return 0;
+    return;
 }
 
