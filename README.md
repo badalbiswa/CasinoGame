@@ -1,7 +1,7 @@
 # Template for CPSC2720 Major Project: Text-based Adventure Game
 
 
-Last Updated: 2022-12-15 by Nicole Wilson &lt;n.wilson@uleth.ca&gt;
+Last Updated: 2022-12-15 by Renzo Cattoni [renzo.cattoni@uleth.ca] & Badal Biswa [badal.biswa@uleth.ca]
 
 Notes:
 
@@ -24,3 +24,14 @@ Certain assumptions have been made:
 * All project source files for the project are named <code>*.cpp</code>.
   * Any needed source files that correspond to header files are found in <code>src/</code>.
   * There is a <code>main.cpp</code> found in <code>src/project/</code>.
+
+
+Group F
+
+Renzo Cattoni, Badal Biswa
+
+Badal:
+- Was responsible for the implemntation deck.h, card.h, blackjack.cpp, deck.cpp, baccarate.cpp, roulette.cpp, slot.cpp
+
+Renzo: 
+- Was responsible for the implemntation Game.h, Item.h, NPC.h, PlaceBoClass, Player.h, Room.h, Game.cpp, NPC.cpp, PlaceboClass.cpp, Player.cpp, Room.cpp
