@@ -17,6 +17,9 @@ public:
     const std::vector<Item>& getItems() const {
         return items;
     }
+    bool isEmpty(){
+        return items.empty();
+    }
 
 };
 
