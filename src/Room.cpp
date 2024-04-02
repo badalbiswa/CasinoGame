@@ -30,23 +30,23 @@ Room Game::getCurrentRoom(const std::string &room)
     throw std::runtime_error("Room '" + room + "' not found.");
 }
 
-void Game::roomChecks(Room curRoom, Player& User)
+void Game::roomChecks()
 {
     if (curRoom.getName() == "Slots")
     {
-        User.setChips(slotMachine(User));
+        User.setChips(slotMachine());
     }
     else if (curRoom.getName() == "Bar Counter")
     {
-        bar(User);
+        bar();
     }
     else if (curRoom.getName() == "Black Jack")
     {
-        blackJack(User);
+        blackJack();
     }
 }
 
-void Game::move(Room curRoom, Player& User)
+void Game::move()
 {
 
     while (true)

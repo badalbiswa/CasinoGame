@@ -96,7 +96,7 @@ void playSlotMachine(int bet)
     std::cout << "Remaining chips: " << chips << std::endl; // Display remaining chips
 }
 
-int Game::slotMachine(Player User)
+int Game::slotMachine()
 {
     chips = User.getChips();
     User.setChips(chips);

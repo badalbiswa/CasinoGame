@@ -1,5 +1,6 @@
 #include "NPC.h"
 #include "Game.h"
+#include "Item.h"
 #include <iostream>
 #include <string>
 
@@ -10,11 +11,11 @@ void Game::createNPCs()
     NPC HomelessGuy = NPC("Homeless GUy", "Bar Outside Exit", 100, 100, "What are you looking at?", 0);
 }
 
-void Game::bar(Player User){
-
+void Game::bar(){
 std::string input;
 
 std::cout << "*You have sat down at the bar*\nBartender: Hey what can I grab for you?\n";
 std::cin >> input;
+User.addToInventory(Beer);
 
 }

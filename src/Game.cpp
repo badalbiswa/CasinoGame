@@ -4,19 +4,19 @@
 #include <iostream>
 #include <sstream>
 
-Game::Game() {}
+Game::Game() {
+    createRooms();
+    createNPCs();
+    createItems();
+}
 
 void Game::play()
 {
     // Game loop
-    createRooms();
-    createNPCs();
-    Player User;
-    Room curRoom;
     while (true)
     {
         curRoom = User.getRoom();
-        roomChecks(curRoom, User);
-        move(curRoom, User);
+        roomChecks();
+        move();
     }
 }

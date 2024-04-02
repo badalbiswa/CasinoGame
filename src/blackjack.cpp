@@ -179,7 +179,7 @@ Card generateRandomCard() {
     return Card{randomRank, randomSuit};
 }
 
-int Game::blackJack(Player User) {
+int Game::blackJack() {
     srand(time(nullptr)); // Seed the random number generator
 
     char playAgain;
