@@ -13,6 +13,8 @@ private:
    bool Fightable;
 
 public:
+   NPC()
+   : Name(""), Room(""), Money(0), Health(0), Dialog(""), Fightable (0){}
    NPC(std::string name, std::string room, int money, float hp, std::string dialog, bool fightable)
    {
       Name = name;

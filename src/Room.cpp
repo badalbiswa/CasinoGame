@@ -101,6 +101,7 @@ void Game::move()
         else if (direction == "i" || direction == "I")
         {
             User.getInfo();
+            
         }
         else
         {

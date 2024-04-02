@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "Room.h"
 #include "Player.h"
+#include "NPC.h"
 #include <iostream>
 #include <sstream>
 
