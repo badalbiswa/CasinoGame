@@ -45,3 +45,28 @@ if (User.hasItem("Cigarettes"))
 std::cout << "Linecook: Nevermind then get lost pal\n";
 }
 }
+
+void Game::parkingLot(){
+std::string input;
+
+if (HomelessGuy.getHealth() != 0){
+std::cout << "*You notice a homeless man chilling out here*\n";
+std::cout << "Would you like to fight him? (y/n)\n";
+std::cin >> input;
+if (input == "y") {
+    if (User.hasItem("Brass Knuckles"))
+    {
+        std::cout << "You beat up the homeless guy with your brass knuckles and got 20,000 chips!\n";
+        User.setChips(User.getChips() + 20000);
+        HomelessGuy.setHealth(0);
+    } else
+    {
+        std::cout << "You scuffled with the homeless guy and he overpowered you and killed you\n"
+        << "YOU DIED\n";
+        exit(0);
+    }
+}
+} else {
+    std::cout << "*You notice the homeless guy is out cold on the ground*";
+}
+}

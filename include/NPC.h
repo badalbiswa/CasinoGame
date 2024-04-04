@@ -24,6 +24,13 @@ public:
       Dialog = dialog;
       Fightable = fightable;
    }
+   float getHealth(){
+      return Health;
+   }
+   void setHealth(float health)
+   {
+      Health = health;
+   }
 };
 
 #endif

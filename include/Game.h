@@ -33,6 +33,7 @@ public:
    void play();
    void bar();
    void lineCook();
+   void parkingLot();
    int slotMachine();
    int blackJack();
    int roulette();

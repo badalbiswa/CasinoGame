@@ -10,6 +10,7 @@ void Game::createRooms()
     rooms.clear();
 
     rooms.push_back(Room("Outside", "Border", "Casino Entrance", "Parking Lot", "Border"));
+    rooms.push_back(Room("Parking Lot", "Outside", "Border", "Border", "Border"));
     rooms.push_back(Room("Casino Entrance", "Border", "Casino Floor", "Border", "Outside"));
     rooms.push_back(Room("Casino Floor", "Slots", "Bar", "Tables", "Outside"));
     rooms.push_back(Room("Bar", "Bathrooms", "Bar Counter", "Bar Outside Exit", "Casino Floor"));
@@ -55,6 +56,10 @@ void Game::roomChecks()
     else if (curRoom.getName() == "Bar Outside Exit")
     {
         lineCook();
+    }
+    else if (curRoom.getName() == "Parking Lot")
+    {
+        parkingLot();
     }
 }
 
