@@ -34,6 +34,7 @@ public:
    void bar();
    int slotMachine();
    int blackJack();
+   int roulette();
    void roomChecks();
    void move();
    void sleep(int time)

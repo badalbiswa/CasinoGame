@@ -14,7 +14,9 @@ void Game::createRooms()
     rooms.push_back(Room("Casino Floor", "Slots", "Bar", "Tables", "Outside"));
     rooms.push_back(Room("Bar", "Bathrooms", "Bar Counter", "Bar Outside Exit", "Casino Floor"));
     rooms.push_back(Room("Slots", "Border", "Border", "Casino Floor", "Border"));
-    rooms.push_back(Room("Bar Counter", "Border", "Border", "Border", "Bar"));
+    rooms.push_back(Room("Tables", "Casino Floor", "Baccarate", "Black Jack", "Roulette"));
+    rooms.push_back(Room("Roulette", "Border", "Tables", "Border", "Border"));
+    rooms.push_back(Room("Black Jack", "Tables", "Border", "Border", "Border"));
 }
 
 Room Game::getCurrentRoom(const std::string &room)
@@ -42,7 +44,11 @@ void Game::roomChecks()
     }
     else if (curRoom.getName() == "Black Jack")
     {
-        blackJack();
+        User.setChips(blackJack());
+    }
+    else if (curRoom.getName() == "Roulette")
+    {
+        User.setChips(roulette());
     }
 }
 
