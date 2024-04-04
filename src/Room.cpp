@@ -14,7 +14,7 @@ void Game::createRooms()
     rooms.push_back(Room("Casino Entrance", "Border", "Casino Floor", "Border", "Outside"));
     rooms.push_back(Room("Casino Floor", "Slots", "Bar", "Tables", "Outside"));
     rooms.push_back(Room("Bar", "Bathrooms", "Bar Counter", "Bar Outside Exit", "Casino Floor"));
-    rooms.push_back(Room("Bar", "Bathrooms", "Bar Counter", "Bar Outside Exit", "Casino Floor"));
+    rooms.push_back(Room("Bar Counter", "Border", "Border", "Border", "Bar"));
     rooms.push_back(Room("Bar Outside Exit", "Bar", "Border", "Border", "Border"));
     rooms.push_back(Room("Slots", "Border", "Border", "Casino Floor", "Border"));
     rooms.push_back(Room("Tables", "Casino Floor", "Baccarate", "Black Jack", "Roulette"));
@@ -63,35 +63,15 @@ void Game::roomChecks()
     }
     else if ((curRoom.getName() == "Casino Floor") && (!MobBoss.getFight()) && (MobBoss.getHealth() != 0))
     {
-        int input;
-        std::cout << "Mob Boss: Hey, you! One of my boys saw ricardo beaten up outside and he said you took all his chips."
-        << "That punk stole it from me while player poker, they are mine so pass them over!\n";
-        if (User.getChips() < 20000) {
-            std::cout << "You only have " << User.getChips() << "\nYou: I kinda spent all of it...\n"
-            << "Mob Boss: They better have a damn good janitor at the casino.\n The Mob Boss beat you into a pulp. \n YOU DIED\n";
-            exit(0);
-        }
-        std::cout << "(1) Return the chips to him\n(2) Ignore his commands.\n Your choice: ";
-        std::cin >> input;
-        if ((input == 1) && User.getChips() > 20000) {
-            std:: cout << "Good. He almost got away if it wasnt for you, here ill give you something ive been working on.\n"
-            << "Unknown Device... has been added to your inventory\n";
-            User.addToInventory(UnknownDevice);
-            MobBoss.setHealth(0);
-            User.setChips(User.getChips() - 20000);
-        } else {
-            std::cout << "Mob Boss:They better have a damn good janitor at the casino.\n The Mob Boss beat you into a pulp. \n YOU DIED\n";
-            exit(0);
-        }
-        
+        mobBoss();
     }
 }
 
 void Game::move()
 {
     srand(time(nullptr));
-    int randomNumber = rand() % 10 + 1;
-    if ((MobBoss.getFight()) && (randomNumber == 10) && (!HomelessGuy.getFight())) {
+    int randomNumber = rand() % 5 + 1;
+    if ((MobBoss.getFight()) && (randomNumber == 5) && (!HomelessGuy.getFight())) {
         std::cout << "You feel like you are being watched...\n";
         MobBoss.setFight(0);
     }
