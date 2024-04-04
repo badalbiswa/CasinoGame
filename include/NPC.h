@@ -31,6 +31,13 @@ public:
    {
       Health = health;
    }
+   bool getFight(){
+      return Fightable;
+   }
+   void setFight(bool fight)
+   {
+      Fightable = fight;
+   }
 };
 
 #endif

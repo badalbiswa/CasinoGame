@@ -23,6 +23,7 @@ private:
    NPC Dealer;
    NPC HomelessGuy;
    NPC Linecook;
+   NPC MobBoss;
 
 public:
    Game();
@@ -34,6 +35,7 @@ public:
    void bar();
    void lineCook();
    void parkingLot();
+   void mobBoss();
    int slotMachine();
    int blackJack();
    int roulette();
