@@ -90,9 +90,9 @@ void Game::roomChecks()
 void Game::move()
 {
     srand(time(nullptr));
-    int randomNumber = rand() % 5 + 1;
-    if (MobBoss.getFight() && randomNumber == 4) {
-        std::cout << "You feel like you are being watched...";
+    int randomNumber = rand() % 10 + 1;
+    if ((MobBoss.getFight()) && (randomNumber == 10) && (!HomelessGuy.getFight())) {
+        std::cout << "You feel like you are being watched...\n";
         MobBoss.setFight(0);
     }
 
