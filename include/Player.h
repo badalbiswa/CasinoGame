@@ -43,6 +43,7 @@ public:
                 << "\nDrunkness: " << Drunkness << "\nItems: ";
       listInventory();
       std::cout << "\n";
+      checkItems();
    }
 
    int getChips()
@@ -60,30 +61,55 @@ public:
       inventory.addItem(item);
    }
 
+   void removeFromInventory (const Item &item)
+   {
+      inventory.removeItem(item);
+   }
+
    void listInventory() const
    {
       const std::vector<Item> &items = inventory.getItems();
       for (const Item &item : items)
       {
-         std::cout << "- " << item.getName() << "\n";
+         std::cout << "\n" << item.getName() << "\n";
       }
    }
 
    void checkItems()
    {
+      if (inventory.isEmpty()) {return;}
       std::string input;
       const std::vector<Item> &items = inventory.getItems();
       for (const Item &item : items)
       {
          if (item.getName() == "Beer")
          {
-            std::cout << "Press 1 to drink the beer";
-            std::cin >> input;
-
+            std::cout << "Press 1 to drink the beer\n";
+         }
+         if (item.getName() == "Cigarettes")
+         {
+            std::cout << "Press 2 to smoke a cigarette\n";
+         }
+         if (item.getName()== "Brass Knuckles")
+         {
          }
 
       }
    }
+   bool hasItem(std::string Citem)
+   {
+      const std::vector<Item> &items = inventory.getItems();
+      for (const Item &item : items)
+      {
+         if (item.getName() == Citem)
+         {
+            return true;
+         }
+
+      }  
+      return false;    
+   }
+    
    };
 
 #endif

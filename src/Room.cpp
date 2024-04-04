@@ -10,11 +10,16 @@ void Game::createRooms()
     rooms.clear();
 
     rooms.push_back(Room("Outside", "Border", "Casino Entrance", "Parking Lot", "Border"));
+    rooms.push_back(Room("Parking Lot", "Outside", "Border", "Border", "Border"));
     rooms.push_back(Room("Casino Entrance", "Border", "Casino Floor", "Border", "Outside"));
     rooms.push_back(Room("Casino Floor", "Slots", "Bar", "Tables", "Outside"));
     rooms.push_back(Room("Bar", "Bathrooms", "Bar Counter", "Bar Outside Exit", "Casino Floor"));
-    rooms.push_back(Room("Slots", "Border", "Border", "Casino Floor", "Border"));
     rooms.push_back(Room("Bar Counter", "Border", "Border", "Border", "Bar"));
+    rooms.push_back(Room("Bar Outside Exit", "Bar", "Border", "Border", "Border"));
+    rooms.push_back(Room("Slots", "Border", "Border", "Casino Floor", "Border"));
+    rooms.push_back(Room("Tables", "Casino Floor", "Baccarate", "Black Jack", "Roulette"));
+    rooms.push_back(Room("Roulette", "Border", "Tables", "Border", "Border"));
+    rooms.push_back(Room("Black Jack", "Tables", "Border", "Border", "Border"));
 }
 
 Room Game::getCurrentRoom(const std::string &room)
@@ -42,12 +47,34 @@ void Game::roomChecks()
     }
     else if (curRoom.getName() == "Black Jack")
     {
-        blackJack();
+        User.setChips(blackJack());
+    }
+    else if (curRoom.getName() == "Roulette")
+    {
+        User.setChips(roulette());
+    }
+    else if (curRoom.getName() == "Bar Outside Exit")
+    {
+        lineCook();
+    }
+    else if (curRoom.getName() == "Parking Lot")
+    {
+        parkingLot();
+    }
+    else if ((curRoom.getName() == "Casino Floor") && (!MobBoss.getFight()) && (MobBoss.getHealth() != 0))
+    {
+        mobBoss();
     }
 }
 
 void Game::move()
 {
+    srand(time(nullptr));
+    int randomNumber = rand() % 5 + 1;
+    if ((MobBoss.getFight()) && (randomNumber == 5) && (!HomelessGuy.getFight())) {
+        std::cout << "You feel like you are being watched...\n";
+        MobBoss.setFight(0);
+    }
 
     while (true)
     {

@@ -17,6 +17,17 @@ public:
     const std::vector<Item>& getItems() const {
         return items;
     }
+    bool isEmpty(){
+        return items.empty();
+    }
+    void removeItem(const Item& itemToRemove) {
+    for (auto it = items.begin(); it != items.end(); ++it) {
+        if (*it == itemToRemove) {
+            items.erase(it);
+            return; // Exit the function after removing the item
+        }
+    }
+    }
 
 };
 

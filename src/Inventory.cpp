@@ -20,5 +20,6 @@ void Game::createItems()
     UnknownDevice = Item("Unknown Device...", 
     "Introducing the 'Unknown Device': Your secret weapon against the odds! Cheat your way to slot success with this mysterious gadget. Just don't let the casino catch wind of it... shhh!",
     0);
+    User.addToInventory(Cigarette);
 }
 

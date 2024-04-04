@@ -13,6 +13,7 @@
 #include "Player.h"
 
 int chips; // Starting number of chips
+bool hasDevice = 0;
 
 int getRandomNumber(int min, int max)
 {
@@ -82,7 +83,53 @@ void playSlotMachine(int bet)
     }
 
     // Check for win
-    if (reels[0] == reels[1] && reels[1] == reels[2])
+    if ((reels[0] == reels[1] && reels[1] == reels[2]))
+    {
+        std::cout << "\nCongratulations! You win!\n";
+        chips += (bet * 10); // Win 10 times the bet
+    }
+    else
+    {
+        std::cout << "\nSorry, you lose.\n";
+        chips -= bet; // Lose the bet amount
+    }
+
+    std::cout << "Remaining chips: " << chips << std::endl; // Display remaining chips
+}
+
+void playBustedSlots(int bet)
+{
+    if (chips == 0)
+    {
+        std::cout << "You are out of chips. Game over!\n";
+        return;
+    }
+
+    if (bet > chips)
+    {
+        std::cout << "Not enough chips to place the bet. Please bet again." << std::endl;
+        return;
+    }
+
+    srand(time(0)); // Seed the random number generator
+
+    int reels[4];
+
+    // Spin the reels
+    for (int i = 0; i < 4; ++i)
+    {
+        reels[i] = getRandomNumber(0, 2); // Get a random number representing a symbol
+    }
+
+    // Display the result
+    std::cout << "Reels: ";
+    for (int i = 0; i < 4; ++i)
+    {
+        displaySymbols(reels[i]); // Display the symbol
+    }
+
+    // Check for win
+    if ((reels[0] == reels[1] && reels[1] == reels[2]) || ((reels[1] == reels[2] && reels[2] == reels[3])))
     {
         std::cout << "\nCongratulations! You win!\n";
         chips += (bet * 10); // Win 10 times the bet
@@ -102,7 +149,10 @@ int Game::slotMachine()
     std::cout << "Slot machines is a game where you can wager varying amounts (10, 20, 50, 100, 500, or 1000 chips) on each spin. The game uses numbers to simulate spinning reels with 7 symbols (cherry, oranges, lemons, grapes, watermelon, bell, and diamond). To hit the jackpot, all three reels need to land on the same symbol. A winning spin multiplies your bet by 10." << std::endl;
 
     chips = User.getChips();
-    User.setChips(chips);
+    if (User.hasItem("Unknown Device...")) {
+        hasDevice = 1;
+        std::cout << "*You swipe the device into the chip intake...*\n";
+    }
     int choice;
     std::cout << "\n------------------------------------------\n";
     std::cout << "       Welcome to the Slot Machine!\n";
@@ -152,7 +202,11 @@ int Game::slotMachine()
             break;
         }
 
+        if (!hasDevice){
         playSlotMachine(bet);
+        } else if (hasDevice){
+            playBustedSlots(bet);
+        }
 
         if (chips > 0)
         {

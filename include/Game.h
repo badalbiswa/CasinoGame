@@ -23,6 +23,7 @@ private:
    NPC Dealer;
    NPC HomelessGuy;
    NPC Linecook;
+   NPC MobBoss;
 
 public:
    Game();
@@ -32,8 +33,12 @@ public:
    Room getCurrentRoom(const std::string &room);
    void play();
    void bar();
+   void lineCook();
+   void parkingLot();
+   void mobBoss();
    int slotMachine();
    int blackJack();
+   int roulette();
    void roomChecks();
    void move();
    void sleep(int time)
@@ -43,3 +48,4 @@ public:
 };
 
 #endif
+
