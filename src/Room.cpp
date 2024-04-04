@@ -61,17 +61,17 @@ void Game::roomChecks()
     {
         parkingLot();
     }
-    else if ((curRoom.getName() == "Casino Floor") && (!MobBoss.getFight) && (MobBoss.getHealth != 0))
+    else if ((curRoom.getName() == "Casino Floor") && (!MobBoss.getFight()) && (MobBoss.getHealth() != 0))
     {
         int input;
         std::cout << "Mob Boss: Hey, you! One of my boys saw ricardo beaten up outside and he said you took all his chips."
-        << "That punk stole it from me while player poker, they are mine so pass them over!\n"
+        << "That punk stole it from me while player poker, they are mine so pass them over!\n";
         if (User.getChips() < 20000) {
-            std::cout "You only have " << User.getChips() << "\nYou: I kinda spent all of it...\n"
+            std::cout << "You only have " << User.getChips() << "\nYou: I kinda spent all of it...\n"
             << "Mob Boss: They better have a damn good janitor at the casino.\n The Mob Boss beat you into a pulp. \n YOU DIED\n";
             exit(0);
         }
-        << "(1) Return the chips to him\n(2) Ignore his commands.\n Your choice: ";
+        std::cout << "(1) Return the chips to him\n(2) Ignore his commands.\n Your choice: ";
         std::cin >> input;
         if ((input == 1) && User.getChips() > 20000) {
             std:: cout << "Good. He almost got away if it wasnt for you, here ill give you something ive been working on.\n"
