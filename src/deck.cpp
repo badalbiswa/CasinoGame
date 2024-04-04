@@ -10,7 +10,7 @@
 Deck::Deck() {
     // Initialize the deck with cards
     for (int rank = static_cast<int>(Rank::TWO); rank <= static_cast<int>(Rank::ACE); ++rank) {
-        for (const std::string& suit : {"Hearts", "Diamonds", "Clubs", "Spades"}) {
+        for (const std::string& suit : {"♥", "♦", "♣", "♠"}) {
             cards.push_back(Card{static_cast<Rank>(rank), suit});
         }
     }
