@@ -32,6 +32,7 @@ public:
    Room getCurrentRoom(const std::string &room);
    void play();
    void bar();
+   void lineCook();
    int slotMachine();
    int blackJack();
    int roulette();
@@ -44,3 +45,4 @@ public:
 };
 
 #endif
+

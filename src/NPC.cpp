@@ -28,3 +28,20 @@ std::cout << "Beer has been added to inventory.\npress I to access your inventor
 sleep(3);
 std::cout << "\nYou have exited the " << curRoom.getName() << "...";
 }
+
+void Game::lineCook(){
+std::string input;
+
+std::cout <<"*You exited the bar and you see a Linecook outside on his phone*\n";
+std::cout <<"Linecook: Man i could go for a ciggy do you have any? Ill trade you these brass knuckles for them\n";
+std::cout <<User.hasItem("Cigarettes");
+if (User.hasItem("Cigarettes"))
+{
+    std::cout <<"*You gave the linecook your cigarettes and he exchanged you a shiny pair of brass knuckles*\n";
+    User.addToInventory(BrassKnuckles);
+    User.removeFromInventory(Cigarette);
+} else
+{
+std::cout << "Linecook: Nevermind then get lost pal\n";
+}
+}

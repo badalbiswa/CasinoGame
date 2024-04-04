@@ -13,6 +13,8 @@ void Game::createRooms()
     rooms.push_back(Room("Casino Entrance", "Border", "Casino Floor", "Border", "Outside"));
     rooms.push_back(Room("Casino Floor", "Slots", "Bar", "Tables", "Outside"));
     rooms.push_back(Room("Bar", "Bathrooms", "Bar Counter", "Bar Outside Exit", "Casino Floor"));
+    rooms.push_back(Room("Bar", "Bathrooms", "Bar Counter", "Bar Outside Exit", "Casino Floor"));
+    rooms.push_back(Room("Bar Outside Exit", "Bar", "Border", "Border", "Border"));
     rooms.push_back(Room("Slots", "Border", "Border", "Casino Floor", "Border"));
     rooms.push_back(Room("Tables", "Casino Floor", "Baccarate", "Black Jack", "Roulette"));
     rooms.push_back(Room("Roulette", "Border", "Tables", "Border", "Border"));
@@ -49,6 +51,10 @@ void Game::roomChecks()
     else if (curRoom.getName() == "Roulette")
     {
         User.setChips(roulette());
+    }
+    else if (curRoom.getName() == "Bar Outside Exit")
+    {
+        lineCook();
     }
 }
 

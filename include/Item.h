@@ -23,6 +23,12 @@ Item(std::string name, std::string description, int price)
 
 std::string getName() const { return Name; }
 
+    bool operator==(const Item& other) const {
+        // Compare the relevant attributes of the items
+        // For example, if name uniquely identifies items:
+        return Name == other.Name;
+    }
+
 };
 
 #endif
