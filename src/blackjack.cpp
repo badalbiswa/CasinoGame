@@ -180,6 +180,10 @@ Card generateRandomCard() {
 }
 
 int Game::blackJack() {
+
+    std::cout << "RULES" << std::endl;
+    std::cout << "Blackjack is a fast-paced card game where you aim for 21 without going over. Aces can be 1 or 11, and you compete against the dealer to get the closest hand to 21. Hit for more cards or stand on your total. Win by being closer to 21 than the dealer without busting. It's a fun mix of chance and strategy!" << std::endl;
+
     srand(time(nullptr)); // Seed the random number generator
 
     char playAgain;

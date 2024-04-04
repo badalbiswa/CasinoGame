@@ -98,6 +98,9 @@ void playSlotMachine(int bet)
 
 int Game::slotMachine()
 {
+    std::cout << "RULES" << std::endl;
+    std::cout << "Slot machines is a game where you can wager varying amounts (10, 20, 50, 100, 500, or 1000 chips) on each spin. The game uses numbers to simulate spinning reels with 7 symbols (cherry, oranges, lemons, grapes, watermelon, bell, and diamond). To hit the jackpot, all three reels need to land on the same symbol. A winning spin multiplies your bet by 10." << std::endl;
+
     chips = User.getChips();
     User.setChips(chips);
     int choice;

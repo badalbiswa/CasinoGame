@@ -1,0 +1,68 @@
+/home/bisb2720/p-2-group-f/include/card.h:19: warning: Compound Card is not documented.
+/home/bisb2720/p-2-group-f/include/Game.h:9: warning: Compound Game is not documented.
+/home/bisb2720/p-2-group-f/include/Inventory.h:8: warning: Compound Inventory is not documented.
+/home/bisb2720/p-2-group-f/include/Item.h:6: warning: Compound Item is not documented.
+/home/bisb2720/p-2-group-f/include/NPC.h:5: warning: Compound NPC is not documented.
+/home/bisb2720/p-2-group-f/include/Player.h:11: warning: Compound Player is not documented.
+/home/bisb2720/p-2-group-f/include/Room.h:5: warning: Compound Room is not documented.
+/home/bisb2720/p-2-group-f/include/card.h:20: warning: Member rank (variable) of struct Card is not documented.
+/home/bisb2720/p-2-group-f/include/card.h:21: warning: Member suit (variable) of struct Card is not documented.
+/home/bisb2720/p-2-group-f/include/deck.h:20: warning: Member shuffle() (function) of class Deck is not documented.
+/home/bisb2720/p-2-group-f/include/deck.h:21: warning: Member dealCard() (function) of class Deck is not documented.
+/home/bisb2720/p-2-group-f/include/deck.h:22: warning: Member cardsLeft() const (function) of class Deck is not documented.
+/home/bisb2720/p-2-group-f/include/deck.h:16: warning: Member cards (variable) of class Deck is not documented.
+/home/bisb2720/p-2-group-f/include/Game.h:19: warning: Member createRooms() (function) of class Game is not documented.
+/home/bisb2720/p-2-group-f/include/Game.h:20: warning: Member createNPCs() (function) of class Game is not documented.
+/home/bisb2720/p-2-group-f/include/Game.h:21: warning: Member createItems() (function) of class Game is not documented.
+/home/bisb2720/p-2-group-f/include/Game.h:22: warning: Member getCurrentRoom(const std::string &room) (function) of class Game is not documented.
+/home/bisb2720/p-2-group-f/include/Game.h:23: warning: Member play() (function) of class Game is not documented.
+/home/bisb2720/p-2-group-f/include/Game.h:24: warning: Member bar() (function) of class Game is not documented.
+/home/bisb2720/p-2-group-f/include/Game.h:25: warning: Member slotMachine() (function) of class Game is not documented.
+/home/bisb2720/p-2-group-f/include/Game.h:26: warning: Member blackJack() (function) of class Game is not documented.
+/home/bisb2720/p-2-group-f/include/Game.h:27: warning: Member roomChecks() (function) of class Game is not documented.
+/home/bisb2720/p-2-group-f/include/Game.h:28: warning: Member move() (function) of class Game is not documented.
+/home/bisb2720/p-2-group-f/include/Game.h:12: warning: Member User (variable) of class Game is not documented.
+/home/bisb2720/p-2-group-f/include/Game.h:13: warning: Member curRoom (variable) of class Game is not documented.
+/home/bisb2720/p-2-group-f/include/Game.h:14: warning: Member rooms (variable) of class Game is not documented.
+/home/bisb2720/p-2-group-f/include/Game.h:15: warning: Member Beer (variable) of class Game is not documented.
+/home/bisb2720/p-2-group-f/include/Inventory.h:14: warning: Member addItem(const Item &newItem) (function) of class Inventory is not documented.
+/home/bisb2720/p-2-group-f/include/Inventory.h:17: warning: Member getItems() const (function) of class Inventory is not documented.
+/home/bisb2720/p-2-group-f/include/Inventory.h:11: warning: Member items (variable) of class Inventory is not documented.
+/home/bisb2720/p-2-group-f/include/Item.h:17: warning: Member Item(std::string name, std::string description, int price) (function) of class Item is not documented.
+/home/bisb2720/p-2-group-f/include/Item.h:24: warning: Member getName() const (function) of class Item is not documented.
+/home/bisb2720/p-2-group-f/include/Item.h:9: warning: Member Name (variable) of class Item is not documented.
+/home/bisb2720/p-2-group-f/include/Item.h:10: warning: Member Description (variable) of class Item is not documented.
+/home/bisb2720/p-2-group-f/include/Item.h:11: warning: Member Price (variable) of class Item is not documented.
+/home/bisb2720/p-2-group-f/include/NPC.h:16: warning: Member NPC(std::string name, std::string room, int money, float hp, std::string dialog, bool fightable) (function) of class NPC is not documented.
+/home/bisb2720/p-2-group-f/include/NPC.h:8: warning: Member Name (variable) of class NPC is not documented.
+/home/bisb2720/p-2-group-f/include/NPC.h:9: warning: Member Room (variable) of class NPC is not documented.
+/home/bisb2720/p-2-group-f/include/NPC.h:10: warning: Member Money (variable) of class NPC is not documented.
+/home/bisb2720/p-2-group-f/include/NPC.h:11: warning: Member Health (variable) of class NPC is not documented.
+/home/bisb2720/p-2-group-f/include/NPC.h:12: warning: Member Dialog (variable) of class NPC is not documented.
+/home/bisb2720/p-2-group-f/include/NPC.h:13: warning: Member Fightable (variable) of class NPC is not documented.
+/home/bisb2720/p-2-group-f/include/Player.h:29: warning: Member getRoom() (function) of class Player is not documented.
+/home/bisb2720/p-2-group-f/include/Player.h:34: warning: Member updateRoom(Room room) (function) of class Player is not documented.
+/home/bisb2720/p-2-group-f/include/Player.h:39: warning: Member getInfo() (function) of class Player is not documented.
+/home/bisb2720/p-2-group-f/include/Player.h:46: warning: Member getChips() (function) of class Player is not documented.
+/home/bisb2720/p-2-group-f/include/Player.h:51: warning: Member setChips(int chips) (function) of class Player is not documented.
+/home/bisb2720/p-2-group-f/include/Player.h:56: warning: Member addToInventory(const Item &item) (function) of class Player is not documented.
+/home/bisb2720/p-2-group-f/include/Player.h:60: warning: Member listInventory() const (function) of class Player is not documented.
+/home/bisb2720/p-2-group-f/include/Player.h:14: warning: Member Name (variable) of class Player is not documented.
+/home/bisb2720/p-2-group-f/include/Player.h:15: warning: Member Chips (variable) of class Player is not documented.
+/home/bisb2720/p-2-group-f/include/Player.h:16: warning: Member Money (variable) of class Player is not documented.
+/home/bisb2720/p-2-group-f/include/Player.h:17: warning: Member Health (variable) of class Player is not documented.
+/home/bisb2720/p-2-group-f/include/Player.h:18: warning: Member Thirst (variable) of class Player is not documented.
+/home/bisb2720/p-2-group-f/include/Player.h:19: warning: Member Drunkness (variable) of class Player is not documented.
+/home/bisb2720/p-2-group-f/include/Player.h:20: warning: Member CurrentRoom (variable) of class Player is not documented.
+/home/bisb2720/p-2-group-f/include/Player.h:21: warning: Member inventory (variable) of class Player is not documented.
+/home/bisb2720/p-2-group-f/include/Room.h:21: warning: Member Room(std::string name, std::string N, std::string E, std::string S, std::string W) (function) of class Room is not documented.
+/home/bisb2720/p-2-group-f/include/Room.h:31: warning: Member getName() const (function) of class Room is not documented.
+/home/bisb2720/p-2-group-f/include/Room.h:35: warning: Member getN() (function) of class Room is not documented.
+/home/bisb2720/p-2-group-f/include/Room.h:39: warning: Member getE() (function) of class Room is not documented.
+/home/bisb2720/p-2-group-f/include/Room.h:43: warning: Member getS() (function) of class Room is not documented.
+/home/bisb2720/p-2-group-f/include/Room.h:47: warning: Member getW() (function) of class Room is not documented.
+/home/bisb2720/p-2-group-f/include/Room.h:8: warning: Member Name (variable) of class Room is not documented.
+/home/bisb2720/p-2-group-f/include/Room.h:9: warning: Member borderNorth (variable) of class Room is not documented.
+/home/bisb2720/p-2-group-f/include/Room.h:10: warning: Member borderEast (variable) of class Room is not documented.
+/home/bisb2720/p-2-group-f/include/Room.h:11: warning: Member borderSouth (variable) of class Room is not documented.
+/home/bisb2720/p-2-group-f/include/Room.h:12: warning: Member borderWest (variable) of class Room is not documented.
