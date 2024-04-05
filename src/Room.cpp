@@ -11,7 +11,6 @@
 #include <algorithm>
 
 void Game::createRooms() {
-
   rooms.clear();
 
   rooms.push_back(
@@ -52,36 +51,36 @@ Room Game::getCurrentRoom(const std::string &room) {
 
 void Game::roomChecks() {
   if (curRoom.getName() == "Slots") {
-    if (User.getChips() > 0)
+    if (User.getChips() > 0) {
       User.setChips(slotMachine());
-    else {
+    } else {
       std::cout << "*You don't have any chips to play casino games*\n"
           << "You have exited " << curRoom.getName() << "\n";
       User.updateRoom(getCurrentRoom(curRoom.getS()));
       curRoom = User.getRoom();
     }
   } else if (curRoom.getName() == "Black Jack") {
-    if (User.getChips() > 0)
+    if (User.getChips() > 0) {
       User.setChips(blackJack());
-    else {
+    } else {
       std::cout << "*You don't have any chips to play casino games*\n"
           << "You have exited " << curRoom.getName() << "\n";
       User.updateRoom(getCurrentRoom(curRoom.getN()));
       curRoom = User.getRoom();
     }
   } else if (curRoom.getName() == "Roulette") {
-    if (User.getChips() > 0)
+    if (User.getChips() > 0) {
       User.setChips(roulette());
-    else {
+    } else {
       std::cout << "*You don't have any chips to play casino games*\n"
           << "You have exited " << curRoom.getName() << "\n";
       User.updateRoom(getCurrentRoom(curRoom.getE()));
       curRoom = User.getRoom();
     }
   } else if (curRoom.getName() == "Baccarate") {
-    if (User.getChips() > 0)
+    if (User.getChips() > 0) {
       User.setChips(baccarate());
-    else {
+    } else {
       std::cout << "*You don't have any chips to play casino games*\n"
           << "You have exited " << curRoom.getName() << "\n";
       User.updateRoom(getCurrentRoom(curRoom.getW()));
@@ -103,17 +102,16 @@ void Game::roomChecks() {
         << "You left the casino and were able to save your house...\nYOU WIN\n";
     exit(0);
   }
-
 }
 
 void Game::move() {
-  srand(time(nullptr));
-  int randomNumber = rand() % 5 + 1;
-  if ((MobBoss.getFight()) && (randomNumber == 5)
-      && (!HomelessGuy.getFight())) {
+srand(time(nullptr));
+unsigned int seed = static_cast<unsigned int>(time(nullptr));
+int randomNumber = rand_r(&seed) % 5 + 1;
+if ((MobBoss.getFight()) && (randomNumber == 5) && (!HomelessGuy.getFight())) {
     std::cout << "You feel like you are being watched...\n";
     MobBoss.setFight(0);
-  }
+}
 
   std::cout << "You are at " << curRoom.getName();
   while (true) {

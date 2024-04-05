@@ -25,8 +25,10 @@ void Game::createNPCs() {
                    "Welcome to the bank", 1);
   CasinoBoss = NPC("Casino Boss", "", 100, 100, "I am the boss", 1);
   std::cout
-      << "*You walk up to the casino and a homeless man runs through the doors, looking"
-      << "back to see if he was being chased out. He runs towards the parking lot.*\n";
+      << "*You walk up to the casino and a homeless man "
+      << "runs through the doors, looking"
+      << "back to see if he was being chased out. He runs "
+      << "towards the parking lot.*\n";
 }
 
 void Game::bar() {
@@ -42,7 +44,8 @@ void Game::bar() {
     std::cout << "*The Bartender served you a beer*\n";
     sleep(2);
     std::cout
-        << "Beer has been added to inventory.\npress I to access your inventory and drink the beer!\n";
+        << "Beer has been added to inventory.\npress I to "
+        << "access your inventory and drink the beer!\n";
     sleep(3);
   }
   std::cout << "\nYou have exited the " << curRoom.getName() << "...\n";
@@ -56,10 +59,12 @@ void Game::lineCook() {
     std::cout
         << "*You exited the bar and you see a Linecook outside on his phone*\n";
     std::cout
-        << "Linecook: Man i could go for a ciggy do you have any? Ill trade you these brass knuckles for them\n";
+        << "Linecook: Man i could go for a ciggy do you have any? "
+        << "Ill trade you these brass knuckles for them\n";
     if (User.hasItem("Cigarettes")) {
       std::cout
-          << "*You gave the linecook your cigarettes and he exchanged you a shiny pair of brass knuckles*\n";
+          << "*You gave the linecook your cigarettes and he "
+          << "exchanged you a shiny pair of brass knuckles*\n";
       User.addToInventory(BrassKnuckles);
       User.removeFromInventory(Cigarette);
       Linecook.setFight(0);
@@ -68,7 +73,8 @@ void Game::lineCook() {
     }
   } else {
     std::cout
-        << "*You exited the bar and you see the linecook smoking your cigarettes\n";
+        << "*You exited the bar and you see the "
+        << "linecook smoking your cigarettes\n";
   }
 }
 
@@ -82,12 +88,14 @@ void Game::parkingLot() {
     if (input == "y") {
       if (User.hasItem("Brass Knuckles")) {
         std::cout
-            << "You beat up the homeless guy with your brass knuckles and got 20,000 chips!\n";
+            << "You beat up the homeless guy with your brass "
+            << "knuckles and got 20,000 chips!\n";
         User.setChips(User.getChips() + 20000);
         HomelessGuy.setFight(0);
       } else {
         std::cout
-            << "You scuffled with the homeless guy and he overpowered you and killed you\n"
+            << "You scuffled with the homeless guy and he "
+            << "overpowered you and killed you\n"
             << "YOU DIED\n";
         exit(0);
       }
@@ -103,7 +111,8 @@ void Game::casinoBank() {
 
   if (BankTeller.getFight()) {
     std::cout
-        << "Bank Teller: Hello! Welcome to the casino bank, how can I help you?\n";
+        << "Bank Teller: Hello! Welcome to the casino bank, "
+        << "how can I help you?\n";
     if (money > 0)
       std::cout << "(1) Exchange money for chips\n";
     if (chips > 0)
@@ -133,30 +142,35 @@ void Game::casinoBank() {
 }
 
 void Game::mobBoss() {
-
   std::string input;
   std::cout
-      << "Mob Boss: Hey, you! One of my boys saw ricardo beaten up outside and he said you took all his chips."
-      << "That punk stole it from me while player poker, they are mine so pass them over!\n";
+      << "Mob Boss: Hey, you! One of my boys saw ricardo "
+      << "beaten up outside and he said you took all his chips."
+      << "That punk stole it from me while player poker, "
+      << "they are mine so pass them over!\n";
   if (User.getChips() < 20000) {
     std::cout << "You only have " << User.getChips()
         << "\nYou: I kinda spent all of it...\n"
-        << "Mob Boss: They better have a damn good janitor at the casino.\n The Mob Boss beat you into a pulp. \n YOU DIED\n";
+        << "Mob Boss: They better have a damn good janitor at the casino."
+        << "\n The Mob Boss beat you into a pulp. \n YOU DIED\n";
     exit(0);
   }
   std::cout
-      << "(1) Return the chips to him\n(2) Ignore his commands.\n Your choice: ";
+      << "(1) Return the chips to him\n(2) Ignore his "
+      << "commands.\n Your choice: ";
   std::cin >> input;
   if ((input == "1") && User.getChips() >= 20000) {
     std::cout
-        << "Good. He almost got away if it wasnt for you, here ill give you something ive been working on.\n"
+        << "Good. He almost got away if it wasnt for you, here ill "
+        << "give you something ive been working on.\n"
         << "Unknown Device... has been added to your inventory\n";
     User.addToInventory(UnknownDevice);
     MobBoss.setHealth(0);
     User.setChips(User.getChips() - 20000);
   } else {
     std::cout
-        << "Mob Boss:They better have a damn good janitor at the casino.\n The Mob Boss beat you into a pulp. \n YOU DIED\n";
+        << "Mob Boss:They better have a damn good janitor at the casino."
+        << "\n The Mob Boss beat you into a pulp. \n YOU DIED\n";
     exit(0);
   }
 }
