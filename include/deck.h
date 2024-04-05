@@ -12,14 +12,14 @@
 #include <string>
 
 class Deck {
-private:
-    std::vector<Card> cards;
+ private:
+  std::vector<Card> cards;
 
-public:
-    Deck();
-    void shuffle();
-    Card dealCard();
-    int cardsLeft() const;
+ public:
+  Deck();
+  void shuffle();
+  Card dealCard();
+  int cardsLeft() const;
 };
 
 #endif // DECK_H

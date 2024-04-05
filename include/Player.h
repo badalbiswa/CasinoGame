@@ -14,123 +14,113 @@
 
 class Room;
 
-class Player
-{
-private:
-   std::string Name;
-   int Chips;
-   int Money;
-   float Health;
-   float Thirst;
-   float Drunkness;
-   Room CurrentRoom;
-   Inventory inventory;
+class Player {
+ private:
+  std::string Name;
+  int Chips;
+  int Money;
+  float Health;
+  float Thirst;
+  float Drunkness;
+  Room CurrentRoom;
+  Inventory inventory;
 
-public:
-   Player()
-       : Name(""), Chips(0), Money(10000),
-         Health(100), Thirst(100), Drunkness(0),
-         CurrentRoom("Outside", "Border", "Casino Entrance", "Parking Lot", "Border") {}
+ public:
+  Player()
+      :
+      Name(""),
+      Chips(0),
+      Money(10000),
+      Health(100),
+      Thirst(100),
+      Drunkness(0),
+      CurrentRoom("Outside", "Border", "Casino Entrance", "Parking Lot",
+                  "Border") {
+  }
 
-   Room getRoom()
-   {
-      return CurrentRoom;
-   }
+  Room getRoom() {
+    return CurrentRoom;
+  }
 
-   void updateRoom(Room room)
-   {
-      CurrentRoom = room;
-   }
+  void updateRoom(Room room) {
+    CurrentRoom = room;
+  }
 
-   void getInfo()
-   {
-      std::cout << "You checked your stats...\n\nCurrent Location: " << CurrentRoom.getName()
-                <<"\nMoney: $"<< Money << "\nChips: " << Chips << "\nHealth: " << Health << "\nThirst: " << Thirst
-                << "\nDrunkness: " << Drunkness << "\nItems: ";
-      listInventory();
-      std::cout << "\n";
-      checkItems();
-   }
+  void getInfo() {
+    std::cout << "You checked your stats...\n\nCurrent Location: "
+        << CurrentRoom.getName() << "\nMoney: $" << Money << "\nChips: "
+        << Chips << "\nHealth: " << Health << "\nThirst: " << Thirst
+        << "\nDrunkness: " << Drunkness << "\nItems: ";
+    listInventory();
+    std::cout << "\n";
+    checkItems();
+  }
 
-   int getChips()
-   {
-      return Chips;
-   }
+  int getChips() {
+    return Chips;
+  }
 
-   void setChips(int chips)
-   {
-      Chips = chips;
-   }
-   int getMoney()
-   {
-      return Money;
-   }
-   void setMoney(int money)
-   {
-      Money = money;
-   }
+  void setChips(int chips) {
+    Chips = chips;
+  }
+  int getMoney() {
+    return Money;
+  }
+  void setMoney(int money) {
+    Money = money;
+  }
 
-   void addToInventory(const Item &item)
-   {
-      inventory.addItem(item);
-   }
+  void addToInventory(const Item &item) {
+    inventory.addItem(item);
+  }
 
-   void removeFromInventory (const Item &item)
-   {
-      inventory.removeItem(item);
-   }
+  void removeFromInventory(const Item &item) {
+    inventory.removeItem(item);
+  }
 
-   void listInventory() const
-   {
-      const std::vector<Item> &items = inventory.getItems();
-      for (const Item &item : items)
-      {
-         std::cout << "\n" << item.getName() << "\n";
+  void listInventory() const {
+    const std::vector<Item> &items = inventory.getItems();
+    for (const Item &item : items) {
+      std::cout << "\n" << item.getName() << "\n";
+    }
+  }
+
+  void checkItems() {
+    if (inventory.isEmpty()) {
+      return;
+    }
+    std::string input;
+    const std::vector<Item> &items = inventory.getItems();
+    for (const Item &item : items) {
+      int input;
+      if (item.getName() == "Beer") {
+        std::cout << "Press 1 to drink the beer\n";
       }
-   }
-
-   void checkItems()
-   {
-      if (inventory.isEmpty()) {return;}
-      std::string input;
-      const std::vector<Item> &items = inventory.getItems();
-      for (const Item &item : items)
-      {
-         int input;
-         if (item.getName() == "Beer")
-         {
-            std::cout << "Press 1 to drink the beer\n";
-         }
-         if (item.getName() == "Cigarettes")
-         {
-            std::cout << "Press 2 to smoke a cigarette\n";
-         }
+      if (item.getName() == "Cigarettes") {
+        std::cout << "Press 2 to smoke a cigarette\n";
       }
-      std::cin >> input;
-      if ((input == "1") && inventory.getItemByName("Beer")){
+    }
+    std::cin >> input;
+    if ((input == "1") && inventory.getItemByName("Beer")) {
       std::cout << "You drank the beer, it went down smooth.\n";
       inventory.removeItemByName("Beer");
 
+    } else if ((input == "2") && inventory.getItemByName("Cigarettes")) {
+      std::cout << "You smoked the cigarettes, it felt nice.\n";
+      inventory.removeItemByName("Cigarettes");
+    }
+  }
+  bool hasItem(std::string Citem) {
+    const std::vector<Item> &items = inventory.getItems();
+    for (const Item &item : items) {
+      if (item.getName() == Citem) {
+        return true;
       }
-      else if ((input == "2") && inventory.getItemByName("Cigarettes")){
-         std::cout << "You smoked the cigarettes, it felt nice.\n";
-         inventory.removeItemByName("Cigarettes");
-      }
-   }
-   bool hasItem(std::string Citem)
-   {
-      const std::vector<Item> &items = inventory.getItems();
-      for (const Item &item : items)
-      {
-         if (item.getName() == Citem)
-         {
-            return true;
-         }
 
-      }  
-      return false;    
-   }
-    
-   };
+    }
+    return false;
+  }
+
+};
 
 #endif

@@ -12,18 +12,16 @@
 #include <sstream>
 
 Game::Game() {
-    createRooms();
-    createNPCs();
-    createItems();
+  createRooms();
+  createNPCs();
+  createItems();
 }
 
-void Game::play()
-{
-    // Game loop
-    while (true)
-    {
-        curRoom = User.getRoom();
-        roomChecks();
-        move();
-    }
+void Game::play() {
+  // Game loop
+  while (true) {
+    curRoom = User.getRoom();
+    roomChecks();
+    move();
+  }
 }

@@ -282,20 +282,20 @@ int Game::roulette() {
     displayResult(result);
     if (betType == "1" && result == betPocket) {
       std::cout << "Congratulations! You won " << betAmount * 35 << " chips!"
-                << std::endl;
+          << std::endl;
       playerChips += betAmount * 35;
     } else if (betType == "2"
         && (result == betPocket
             || result == std::to_string(std::stoi(betPocket) + 1))) {
       std::cout << "Congratulations! You won " << betAmount * 17 << " chips!"
-                << std::endl;
+          << std::endl;
       playerChips += betAmount * 17;
     } else if (betType == "3"
         && (result == betPocket
             || result == std::to_string(std::stoi(betPocket) + 1)
             || result == std::to_string(std::stoi(betPocket) + 2))) {
       std::cout << "Congratulations! You won " << betAmount * 11 << " chips!"
-                << std::endl;
+          << std::endl;
       playerChips += betAmount * 11;
     } else if (betType == "4"
         && (result == betPocket
@@ -303,13 +303,13 @@ int Game::roulette() {
             || result == std::to_string(std::stoi(betPocket) + 3)
             || result == std::to_string(std::stoi(betPocket) + 4))) {
       std::cout << "Congratulations! You won " << betAmount * 8 << " chips!"
-                << std::endl;
+          << std::endl;
       playerChips += betAmount * 8;
     } else if (betType == "5"
         && (result == "0" || result == "00" || result == "1" || result == "2"
             || result == "3")) {
       std::cout << "Congratulations! You won " << betAmount * 6 << " chips!"
-                << std::endl;
+          << std::endl;
       playerChips += betAmount * 6;
     } else if (betType == "6"
         && (result == betPocket
@@ -319,7 +319,7 @@ int Game::roulette() {
             || result == std::to_string(std::stoi(betPocket) + 4)
             || result == std::to_string(std::stoi(betPocket) + 5))) {
       std::cout << "Congratulations! You won " << betAmount * 5 << " chips!"
-                << std::endl;
+          << std::endl;
       playerChips += betAmount * 5;
     } else if (betType == "7"
         && ((betPocket == "first" && std::stoi(result) >= 1
@@ -329,14 +329,14 @@ int Game::roulette() {
             || (betPocket == "third" && std::stoi(result) >= 25
                 && std::stoi(result) <= 36))) {
       std::cout << "Congratulations! You won " << betAmount * 2 << " chips!"
-                << std::endl;
+          << std::endl;
       playerChips += betAmount * 2;
     } else if (betType == "8"
         && ((betPocket == "first" && std::stoi(result) % 3 == 1)
             || (betPocket == "second" && std::stoi(result) % 3 == 2)
             || (betPocket == "third" && std::stoi(result) % 3 == 0))) {
       std::cout << "Congratulations! You won " << betAmount * 2 << " chips!"
-                << std::endl;
+          << std::endl;
       playerChips += betAmount * 2;
     } else if (betType == "9"
         && ((betPocket == "1-18" && std::stoi(result) >= 1
@@ -344,17 +344,17 @@ int Game::roulette() {
             || (betPocket == "19-36" && std::stoi(result) >= 19
                 && std::stoi(result) <= 36))) {
       std::cout << "Congratulations! You won " << betAmount * 2 << " chips!"
-                << std::endl;
+          << std::endl;
       playerChips += betAmount * 2;
     } else if (betType == "10" && (pocket_colors[result] == betPocket)) {
       std::cout << "Congratulations! You won " << betAmount * 2 << " chips!"
-                << std::endl;
+          << std::endl;
       playerChips += betAmount * 2;
     } else if (betType == "11"
         && ((betPocket == "odd" && std::stoi(result) % 2 != 0)
             || (betPocket == "even" && std::stoi(result) % 2 == 0))) {
       std::cout << "Congratulations! You won " << betAmount * 2 << " chips!"
-                << std::endl;
+          << std::endl;
       playerChips += betAmount * 2;
     } else {
       std::cout << "Sorry! You lost your bet." << std::endl;
@@ -375,8 +375,8 @@ int Game::roulette() {
       break;
     }
   }
-    std::cout << "You have exited Roulette...\n";
-    User.updateRoom(getCurrentRoom(curRoom.getE()));
-    curRoom = User.getRoom();  
+  std::cout << "You have exited Roulette...\n";
+  User.updateRoom(getCurrentRoom(curRoom.getE()));
+  curRoom = User.getRoom();
   return playerChips;
 }

@@ -7,21 +7,17 @@
 #ifndef Blackjack_Account_h
 #define Blackjack_Account_h
 
-class Account
-{
-    double PlayerChips; // chips can be fractional
-    friend class Text;
-public:
-    int initialBet; //bet cannot be fractional
-    void initialize(double c, int b)
-    {
-        PlayerChips = c;
-    }
-    double returnChips()
-    {
-        return PlayerChips;
-    }
+class Account {
+  double PlayerChips;  // chips can be fractional
+  friend class Text;
+ public:
+  int initialBet;  //bet cannot be fractional
+  void initialize(double c, int b) {
+    PlayerChips = c;
+  }
+  double returnChips() {
+    return PlayerChips;
+  }
 };
-
 
 #endif

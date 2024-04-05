@@ -8,25 +8,28 @@
 #define Blackjack_BLACKJACK_h
 
 using namespace std;
-class BJPlayer
-{
-    int Id;
-    bool isSplit;
-    string SplitId;
-    vector<int> Card;
-    int playerBet;
-    friend class Text;
-    friend class Board;
-public:
-    BJPlayer(){}
-    BJPlayer(int id, bool split, string spid):Id(id), isSplit(split), SplitId(spid){}
-    void initialize(int id, bool split, string spid)
-    {
-        Id = id;
-        isSplit = split;
-        SplitId=spid;
-    }
+class BJPlayer {
+  int Id;
+  bool isSplit;
+  string SplitId;
+  vector<int> Card;
+  int playerBet;
+  friend class Text;
+  friend class Board;
+ public:
+  BJPlayer() {
+  }
+  BJPlayer(int id, bool split, string spid)
+      :
+      Id(id),
+      isSplit(split),
+      SplitId(spid) {
+  }
+  void initialize(int id, bool split, string spid) {
+    Id = id;
+    isSplit = split;
+    SplitId = spid;
+  }
 };
-
 
 #endif
