@@ -4,7 +4,7 @@
  * @date 2024-3-28
  */
 
-#include "deck.h"
+#include "Card.h"
 #include <algorithm> // for std::random_shuffle
 
 Deck::Deck() {

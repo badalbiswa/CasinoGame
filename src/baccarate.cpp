@@ -4,8 +4,7 @@
  * @date 2024-3-28
  */
 
-#include "deck.h"
-#include "card.h"
+#include "Card.h"
 #include "Game.h"
 #include <vector>
 #include <iostream>

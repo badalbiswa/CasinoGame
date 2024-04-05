@@ -7,9 +7,9 @@
 #ifndef Blackjack_Board_h
 #define Blackjack_Board_h
 
-#include "blackjack.h"
-#include "Shoe.h"
+#include "Blackjack.h"
 #include "Text.h"
+#include <vector>
 
 class Board {
   int NumDeck;
@@ -17,8 +17,8 @@ class Board {
   Shoe myShoe;
   unsigned int Seed;
  public:
-  vector<BJPlayer> myP;
-  vector<int> DealerCard;
+  std::vector<BJPlayer> myP;
+  std::vector<int> DealerCard;
 
   Board(int nplayer, int ndeck, unsigned int s)
       :
@@ -30,18 +30,18 @@ class Board {
 
   void createBoard();
   void initializeBoard(Text&);  // initialize players and perform card dealing
-  bool initialCheckDealer(vector<Outcome> &result);  // dealer checks for Blackjack
-  void initialCheckPlayer(vector<Outcome> &result);  // player checks for Blackjack
+  bool initialCheckDealer(std::vector<Outcome>& result);  // dealer checks for Blackjack
+  void initialCheckPlayer(std::vector<Outcome>& result);  // player checks for Blackjack
 
-  int total(const vector<int>&);  // total (best) value of the cards of player/dealer
+  int total(const std::vector<int>&);  // total (best) value of the cards of player/dealer
   int value(const int&);  // blackjack value of a particular card
-  Outcome checkResult(const vector<int>&, const vector<int>&);  // compare results in case of NONE
+  Outcome checkResult(const std::vector<int>&, const std::vector<int>&);  // compare results in case of NONE
 
-  void runGame(Text&, vector<Outcome>&);
+  void runGame(Text&, std::vector<Outcome>&);
   Outcome dealersTurn();
   Outcome playersTurn(BJPlayer &myP, Text &myText, bool&);
-  void performSplitOperation(vector<BJPlayer> &myP,
-                             vector<BJPlayer>::iterator &it);  // special operation in case of splitting
+  void performSplitOperation(std::vector<BJPlayer>& myP,
+                             std::vector<BJPlayer>::iterator& it);  // special operation in case of splitting
 };
 
 void Board::createBoard() {
@@ -70,7 +70,7 @@ void Board::initializeBoard(Text &myText) {
   DealerCard.push_back(myShoe.pullCard());
 }
 
-bool Board::initialCheckDealer(vector<Outcome> &result) {
+bool Board::initialCheckDealer(std::vector<Outcome> &result) {
   if (total(DealerCard) == BJ) {
     for (int i = 0; i < NumPlayer; i++) {
       if (total(myP[i].Card) == BJ)
@@ -84,7 +84,7 @@ bool Board::initialCheckDealer(vector<Outcome> &result) {
   return false;
 }
 
-void Board::initialCheckPlayer(vector<Outcome> &result) {
+void Board::initialCheckPlayer(std::vector<Outcome> &result) {
   for (int i = 0; i < NumPlayer; i++) {
     if (total(myP[i].Card) == BJ)
       result.push_back(PLAYER_BJ);
@@ -97,7 +97,7 @@ int Board::value(const int &card) {
   return VALUE[card % NUM_CARD_DECK % NUM_CARD_SUIT];
 }
 
-int Board::total(const vector<int> &card) {
+int Board::total(const std::vector<int> &card) {
   int total = 0;
   int val;
   int NumAce = 0;
@@ -123,12 +123,12 @@ int Board::total(const vector<int> &card) {
   return total;
 }
 
-void Board::runGame(Text &myText, vector<Outcome> &Result) {
+void Board::runGame(Text &myText, std::vector<Outcome> &Result) {
   // print initial board
   myText.printLine("Dealer finished dealing card...current board status:",
                    true);
   myText.printDealerCard(DealerCard, true);
-  for (vector<BJPlayer>::iterator it = myP.begin(); it != myP.end(); it++)
+  for (std::vector<BJPlayer>::iterator it = myP.begin(); it != myP.end(); it++)
     myText.printPlayerCard(*it);
 
   // perform check to see if dealer/player has blackjack
@@ -139,7 +139,7 @@ void Board::runGame(Text &myText, vector<Outcome> &Result) {
   bool isDealerTurn = false;  // player made first move
 
   unsigned int counter = 0;
-  vector<BJPlayer>::iterator it = myP.begin();
+  std::vector<BJPlayer>::iterator it = myP.begin();
 
   while (it != myP.end())  // loop over each player
   {
@@ -256,8 +256,8 @@ Outcome Board::playersTurn(BJPlayer &myP, Text &myText, bool &isSplit) {
   return result;
 }
 
-void Board::performSplitOperation(vector<BJPlayer> &myP,
-                                  vector<BJPlayer>::iterator &it) {
+void Board::performSplitOperation(std::vector<BJPlayer> &myP,
+                                  std::vector<BJPlayer>::iterator &it) {
   it = myP.insert(it + 1, BJPlayer(it->Id, true, it->SplitId + "-2"));
   it--;  // to get back to it
   (it + 1)->playerBet = it->playerBet;  //additional player bet to second split
@@ -269,7 +269,7 @@ void Board::performSplitOperation(vector<BJPlayer> &myP,
   (it + 1)->Card.push_back(myShoe.pullCard());
 }
 
-Outcome Board::checkResult(const vector<int> &PCard, const vector<int> &DCard) {
+Outcome Board::checkResult(const std::vector<int> &PCard, const std::vector<int> &DCard) {
   if (total(PCard) > total(DCard))
     return PLAYER_WIN;
   else if (total(PCard) == total(DCard))

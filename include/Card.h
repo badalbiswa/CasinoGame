@@ -8,9 +8,9 @@
 #define CARD_H
 
 #include <string>
-#include <iostream> // Include iostream for std::ostream
+#include <iostream>
+#include <vector>
 
-// Enum representing card ranks
 enum class Rank {
   TWO = 2,
   THREE,
@@ -27,13 +27,11 @@ enum class Rank {
   ACE
 };
 
-// Struct representing a card
 struct Card {
   Rank rank;
   std::string suit;
 };
 
-// Define operator<< for Rank enum
 inline std::ostream& operator<<(std::ostream &os, const Rank &rank) {
   switch (rank) {
     case Rank::TWO:
@@ -79,4 +77,15 @@ inline std::ostream& operator<<(std::ostream &os, const Rank &rank) {
   return os;
 }
 
-#endif // CARD_H
+class Deck {
+ private:
+  std::vector<Card> cards;
+
+ public:
+  Deck();
+  void shuffle();
+  Card dealCard();
+  int cardsLeft() const;
+};
+
+#endif // CARD_DECK_H
