@@ -1,3 +1,9 @@
+/**
+ * @author Renzo Cattoni [renzo.cattoni@uleth.ca]
+ * @author Badal Biswa [badal.biswa@uleth.ca]
+ * @date 2024-3-28
+ */
+
 #ifndef GAME_H
 #define GAME_H
 #include "Room.h"
