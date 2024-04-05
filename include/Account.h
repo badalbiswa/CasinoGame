@@ -17,6 +17,10 @@ public:
     {
         PlayerChips = c;
     }
+    double returnChips()
+    {
+        return PlayerChips;
+    }
 };
 
 
