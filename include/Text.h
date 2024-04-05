@@ -7,6 +7,7 @@
 #include <vector>
 #include <limits>
 #include <iostream> // Need to include for cout, cin, etc.
+#include <string>
 
 #ifndef Blackjack_Text_h
 #define Blackjack_Text_h
@@ -17,6 +18,7 @@ class Text {
   int NumPlayer;
   int InitialAccountValue;
   bool useTextSymbol;
+
  public:
   std::vector<bool> playerStatus;
   std::vector<Account> myA;
@@ -29,15 +31,21 @@ class Text {
   }
 
   void printWelcomeMessage();  // print welcome message
-  void accountSetup(int chips);  // set player status and initial account value; run once
+  void accountSetup(int chips);
+  // set player status and initial account value; run once
   void printAccount();  // print account information for each player
-  PlayerAction playerInput(BJPlayer&, bool, bool);  // takes input from each player
+  PlayerAction playerInput(BJPlayer&, bool, bool);
+  // takes input from each player
   void printResult(Outcome result);  // print result of the play
   void printCard(int);  // print a single card in human readable format
-  void printDealerCard(const std::vector<int> &DealerCard, const bool cardHide);  //print card of a dealer, with/without hide
-  void printPlayerCard(BJPlayer &myP);  //print all cards of a single player
-  bool playerBetInput();  // get input bets from players. also check for play/exit
-  void updateAccounting(int, int, Outcome);  // update account information for each player based on Outcome
+  void printDealerCard(const std::vector<int> &DealerCard, const bool cardHide);
+  //print card of a dealer, with/without hide
+  void printPlayerCard(const BJPlayer &myP);
+  //print all cards of a single player
+  bool playerBetInput();
+  // get input bets from players. also check for play/exit
+  void updateAccounting(int, int, Outcome);
+  // update account information for each player based on Outcome
   void addBlankLine(int n);  // add blank line
   void printLine(std::string s, bool newline);
   int returnChips();
@@ -45,7 +53,8 @@ class Text {
 
 void Text::printWelcomeMessage() {
   std::cout
-      << "\nYou sat down at a Blackjack table with 5 other players.\nMinimum bet at the table is 50."
+      << "\nYou sat down at a Blackjack table with 5 other "
+      << "players.\nMinimum bet at the table is 50."
       << std::endl;
 }
 
@@ -54,7 +63,6 @@ void Text::accountSetup(int chips) {
   myA.resize(NumPlayer);
   for (int i = 0; i < NumPlayer; i++)
     myA[i].initialize(chips, 0);
-
 }
 
 int Text::returnChips() {
@@ -106,14 +114,12 @@ PlayerAction Text::playerInput(BJPlayer &myP, bool isFirstTurn,
     isH = (choice == 'H' || choice == 'h');
     isD = (choice == 'D' || choice == 'd') && (isDoublePossible);
     isSp = (choice == 'T' || choice == 't') && (isSplitPossible);
-
   }
 
   if (isD) {
     myA[myP.Id].PlayerChips -= myP.playerBet;  //update player chips
     myP.playerBet *= 2;  // update player bet
     std::cout << "Your updated bet(total) : " << myP.playerBet << std::endl;
-
   }
   if (isSp) {
     myA[myP.Id].PlayerChips -= myP.playerBet;  //update player chips
@@ -162,19 +168,20 @@ void Text::printCard(int cardId) {
   int cardInDeck = cardId % NUM_CARD_DECK;
   int rank = cardInDeck % NUM_CARD_SUIT;
   int suit = cardInDeck / NUM_CARD_SUIT;
-  if (useTextSymbol)
+  if (useTextSymbol) {
     std::cout << RANK[rank] << " " << SUITS_text[suit];
-  else
+  } else {
     std::cout << RANK[rank] << SUITS[suit];
+  }
 }
 
 void Text::printDealerCard(const std::vector<int> &DealerCard,
                            const bool cardHide) {
   // print dealer cards
   if (cardHide) {
-    if (DealerCard.size() != 2)
+    if (DealerCard.size() != 2) {
       std::cout << "error";
-    else {
+    } else {
       std::cout << "Dealer Cards : ";
       printCard(DealerCard[0]);
       std::cout << ", ";
@@ -190,7 +197,7 @@ void Text::printDealerCard(const std::vector<int> &DealerCard,
   }
 }
 
-void Text::printPlayerCard(BJPlayer &myP) {
+void Text::printPlayerCard(const BJPlayer &myP) {
   if (!myP.isSplit)
     std::cout << "Your Cards : " << std::flush;
   else
@@ -217,13 +224,11 @@ bool Text::playerBetInput() {
     }
   }
   std::cout << std::endl;
-  if (choice == 2)  //exit
-      {
+  if (choice == 2) { //exit
     printAccount();
     std::cout << "You have left the Blackjack table..." << std::endl;
     return false;
-  } else  //play
-  {
+  } else { //play
     std::cout << "Collecting bets from all players..." << std::endl;
     for (int i = 0; i < NumPlayer; i++) {
       if (myA[i].PlayerChips == 0) {
@@ -271,12 +276,10 @@ void Text::updateAccounting(int Id, int playerBet, Outcome r) {
       break;
     default:
       break;            // do nothing
-
   }
 }
 
-void Text::addBlankLine(int n)  // add blank line
-    {
+void Text::addBlankLine(int n) {
   for (int i = 0; i < n; i++)
     std::cout << std::endl;
 }

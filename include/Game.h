@@ -12,8 +12,8 @@
 #include "NPC.h"
 #include <vector>
 #include <sstream>
-#include <chrono>
-#include <thread>
+#include <ctime>  // For time(), clock(), and CLOCKS_PER_SEC
+#include <string>
 
 class Game {
  private:
@@ -53,7 +53,8 @@ class Game {
   void roomChecks();
   void move();
   void sleep(int time) {
-    std::this_thread::sleep_for(std::chrono::seconds(time));
+    clock_t start_time = clock();  // Get the current clock time
+    while ((clock() - start_time) / CLOCKS_PER_SEC < time){}
   }
 };
 

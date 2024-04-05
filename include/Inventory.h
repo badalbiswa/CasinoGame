@@ -48,7 +48,6 @@ class Inventory {
     });
     items.erase(it, items.end());
   }
-
 };
 
 #endif

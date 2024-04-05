@@ -14,15 +14,14 @@ class Item {
   std::string Name;
   std::string Description;
   float Price;
- public:
 
+ public:
   Item()
       :
       Name(""),
       Description(""),
       Price(0) {
   }
-  ;
 
   Item(std::string name, std::string description, int price) {
     Name = name;
@@ -43,8 +42,9 @@ class Item {
   Item getByName(const std::string &name) const {
     if (Name == name) {
       return *this;
-    } else
+    } else {
       return Item();
+    }
   }
 };
 

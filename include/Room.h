@@ -17,7 +17,6 @@ class Room {
   std::string borderWest;
 
  public:
-
   Room()
       :
       Name(""),

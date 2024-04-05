@@ -8,6 +8,7 @@
 #define PLAYER_H
 #include <string>
 #include <iostream>
+#include <vector>
 #include "Item.h"
 #include "Room.h"
 #include "Inventory.h"
@@ -116,11 +117,9 @@ class Player {
       if (item.getName() == Citem) {
         return true;
       }
-
     }
     return false;
   }
-
 };
 
 #endif
