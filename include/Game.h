@@ -25,8 +25,10 @@ private:
    NPC Linecook;
    NPC MobBoss;
    NPC BankTeller;
+   NPC CasinoBoss;
 
 public:
+friend class Player;
    Game();
    void createRooms();
    void createNPCs();

@@ -13,6 +13,7 @@ void Game::createNPCs()
     Linecook = NPC("John the Linecook", "Bar Outside Exit", 100, 100, "Smoking a ciggy", 1);
     MobBoss = NPC("Mob Boss", "Parking Lot", 100, 100, "Big Burly Guy", 1);
     BankTeller = NPC("Bank Teller", "Casino Bank", 100, 100, "Welcome to the bank", 1);
+    CasinoBoss = NPC("Casino Boss", "", 100, 100,"I am the boss", 1);
     std::cout << "*You walk up to the casino and a homeless man runs through the doors, looking"
               << "back to see if he was being chased out. He runs towards the parking lot.*\n";
 }
