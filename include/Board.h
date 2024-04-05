@@ -10,7 +10,7 @@ class Board {
   int NumPlayer;
   Shoe myShoe;
   unsigned int Seed;
-public:
+ public:
   std::vector<BJPlayer> myP;
   std::vector<int> DealerCard;
 
@@ -252,3 +252,5 @@ Outcome Board::checkResult(const std::vector<int>& PCard,
 }
 
 #endif
+
+
