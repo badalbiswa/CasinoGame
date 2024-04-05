@@ -1,5 +1,6 @@
 #include "card.h"
 #include "deck.h"
+#include "Game.h"
 #include <iostream>
 #include <algorithm>
 #include <cstdlib> // for rand() and srand()
@@ -180,7 +181,7 @@ private:
     }
 };
 
-int main() {
+int Game::blackJack() {
     srand(time(nullptr)); // Seed the random number generator
 
     char playAgain;

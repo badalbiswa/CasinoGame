@@ -39,6 +39,7 @@ public:
    int slotMachine();
    int blackJack();
    int roulette();
+   int baccarate();
    void roomChecks();
    void move();
    void sleep(int time)

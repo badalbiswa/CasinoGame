@@ -20,6 +20,7 @@ void Game::createRooms()
     rooms.push_back(Room("Tables", "Casino Floor", "Baccarate", "Black Jack", "Roulette"));
     rooms.push_back(Room("Roulette", "Border", "Tables", "Border", "Border"));
     rooms.push_back(Room("Black Jack", "Tables", "Border", "Border", "Border"));
+    rooms.push_back(Room("Baccarate", "Border", "Border", "Border", "Tables"));
 }
 
 Room Game::getCurrentRoom(const std::string &room)
@@ -52,6 +53,10 @@ void Game::roomChecks()
     else if (curRoom.getName() == "Roulette")
     {
         User.setChips(roulette());
+    }
+        else if (curRoom.getName() == "Baccarate")
+    {
+        User.setChips(baccarate());
     }
     else if (curRoom.getName() == "Bar Outside Exit")
     {
