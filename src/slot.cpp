@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <limits>
+#include <random>
 #include "Game.h"
 #include "Room.h"
 #include "Player.h"
@@ -16,9 +17,12 @@ int chips;  // Starting number of chips
 bool hasDevice = 0;
 
 int getRandomNumber(int min, int max) {
-  static const double fraction = 1.0 / (RAND_MAX + 1.0);
-  return min + static_cast<int>((max - min + 1) * (rand() * fraction));
+  static thread_local std::mt19937 generator(std::random_device {}());
+  std::uniform_int_distribution<int> distribution(min, max);
+  return distribution(generator);
 }
+
+
 
 // Function to display slot machine symbols
 void displaySymbols(int symbol) {
@@ -66,7 +70,8 @@ void playSlotMachine(int bet) {
 
   // Spin the reels
   for (int i = 0; i < 3; ++i) {
-    reels[i] = getRandomNumber(0, 6);  // Get a random number representing a symbol
+    reels[i] = getRandomNumber(0, 6);
+    // Get a random number representing a symbol
   }
 
   // Display the result
@@ -84,7 +89,8 @@ void playSlotMachine(int bet) {
     chips -= bet;  // Lose the bet amount
   }
 
-  std::cout << "Remaining chips: " << chips << std::endl;  // Display remaining chips
+  std::cout << "Remaining chips: "
+  << chips << std::endl;  // Display remaining chips
 }
 
 void playBustedSlots(int bet) {
@@ -105,7 +111,8 @@ void playBustedSlots(int bet) {
 
   // Spin the reels
   for (int i = 0; i < 4; ++i) {
-    reels[i] = getRandomNumber(0, 2);  // Get a random number representing a symbol
+    reels[i] = getRandomNumber(0, 2);
+    // Get a random number representing a symbol
   }
 
   // Display the result
@@ -124,13 +131,22 @@ void playBustedSlots(int bet) {
     chips -= bet;  // Lose the bet amount
   }
 
-  std::cout << "Remaining chips: " << chips << std::endl;  // Display remaining chips
+  std::cout << "Remaining chips: "
+  << chips << std::endl;  // Display remaining chips
 }
 
 int Game::slotMachine() {
   std::cout << "RULES" << std::endl;
   std::cout
-      << "Slot machines is a game where you can wager varying amounts (10, 20, 50, 100, 500, or 1000 chips) on each spin. The game uses numbers to simulate spinning reels with 7 symbols (cherry, oranges, lemons, grapes, watermelon, bell, and diamond). To hit the jackpot, all three reels need to land on the same symbol. A winning spin multiplies your bet by 10."
+      << "Slot machines is a game where you can "
+      << "wager varying amounts (10, 20, 50, "
+      << "100, 500, or 1000 chips) on each spin. "
+      << "The game uses numbers to simulate "
+      << "spinning reels with 7 symbols (cherry, "
+      << "oranges, lemons, grapes, watermelon, "
+      << "bell, and diamond). To hit the jackpot, "
+      << "all three reels need to land on the "
+      << "same symbol. A winning spin multiplies your bet by 10."
       << std::endl;
 
   chips = User.getChips();
