@@ -16,9 +16,9 @@
 #include "Shoe.h"
 #include "Text.h"
 #include "Board.h"
-using namespace std;
+#include "Game.h"
 
-int main(int argc, const char * argv[])
+int Game(blackjack)
 {
     std::cout << "RULES" << std::endl;
     std::cout << "Blackjack (21) is a battle against the dealer to reach 21 without going over. Cards are worth their face value, face cards are 10, and Aces are 1 or 11. You get two face-up cards, the dealer gets one face-up and one face-down. Hit for more cards, stand to stay. Don't bust (go over 21)! After you stand, the dealer reveals their hidden card and hits until they reach 17 or more. Whoever is closest to 21 without busting wins. Getting an Ace and a 10-value card on the first deal is Blackjack, an instant win!" << std::endl;
@@ -43,13 +43,13 @@ int main(int argc, const char * argv[])
 
     // set seed
     if (isRandomSeed) // if random seed then create Seed
-        Seed = (unsigned int)std::chrono::system_clock::now().time_since_epoch().count();
+        Seed = static_cast<unsigned int>(std::chrono::system_clock::now().time_since_epoch().count());
     
     // initialize board setup and play related
     Board myBoard(NumPlayer, NumDeck, Seed);
     myBoard.createBoard();
     
-    vector<Outcome> result; // result vector for each play
+    std::vector<Outcome> result; // result vector for each play
     while (myText.playerBetInput())
     {
         myBoard.initializeBoard(myText); // at each play initialize player and board
