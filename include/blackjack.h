@@ -8,7 +8,7 @@
 #define Blackjack_BLACKJACK_h
 
 using namespace std;
-class Player
+class BJPlayer
 {
     int Id;
     bool isSplit;
@@ -18,8 +18,8 @@ class Player
     friend class Text;
     friend class Board;
 public:
-    Player(){}
-    Player(int id, bool split, string spid):Id(id), isSplit(split), SplitId(spid){}
+    BJPlayer(){}
+    BJPlayer(int id, bool split, string spid):Id(id), isSplit(split), SplitId(spid){}
     void initialize(int id, bool split, string spid)
     {
         Id = id;

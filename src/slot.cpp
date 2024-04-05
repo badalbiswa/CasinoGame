@@ -204,7 +204,7 @@ int Game::slotMachine()
 
         if (!hasDevice){
         playSlotMachine(bet);
-        } else if (hasDevice){
+        } else {
             playBustedSlots(bet);
         }
 

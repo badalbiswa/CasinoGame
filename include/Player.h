@@ -86,7 +86,7 @@ public:
    void checkItems()
    {
       if (inventory.isEmpty()) {return;}
-      int input;
+      std::string input;
       const std::vector<Item> &items = inventory.getItems();
       for (const Item &item : items)
       {
@@ -101,12 +101,12 @@ public:
          }
       }
       std::cin >> input;
-      if ((input == 1) && inventory.getItemByName("Beer")){
+      if ((input == "1") && inventory.getItemByName("Beer")){
       std::cout << "You drank the beer, it went down smooth.\n";
       inventory.removeItemByName("Beer");
 
       }
-      else if ((input == 2) && inventory.getItemByName("Cigarettes")){
+      else if ((input == "2") && inventory.getItemByName("Cigarettes")){
          std::cout << "You smoked the cigarettes, it felt nice.\n";
          inventory.removeItemByName("Cigarettes");
       }

@@ -29,6 +29,7 @@ private:
 
 public:
 friend class Player;
+friend class Account;
    Game();
    void createRooms();
    void createNPCs();

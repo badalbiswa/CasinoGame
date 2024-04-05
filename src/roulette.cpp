@@ -74,7 +74,7 @@ std::string getBetType() {
   return betType;
 }
 
-std::string getBetPocket(std::string betType) {
+std::string getBetPocket(const std::string &betType) {
   // Get the pocket number, color, or odd/even on which the player wants to bet
   std::string betPocket;
   if (betType == "1") {
@@ -142,7 +142,7 @@ std::string getBetPocket(std::string betType) {
   return betPocket;
 }
 
-bool validateBet(std::string betType, std::string betPocket) {
+bool validateBet(const std::string &betType, std::string betPocket) {
   // Validate the bet
   if (betType == "1") {
     if (std::find(pockets.begin(), pockets.end(), betPocket) != pockets.end()) {
@@ -251,12 +251,6 @@ bool validateBet(std::string betType, std::string betPocket) {
     }
   }
   return true;
-}
-
-bool isEven(std::string pocket) {
-  // Check if the pocket is even
-  int number = std::stoi(pocket);
-  return number % 2 == 0;
 }
 
 bool getYesNoInput(const std::string &message) {

@@ -27,17 +27,18 @@ public:
     Text(int n, int m, bool useTS):NumPlayer(n),InitialAccountValue(m), useTextSymbol(useTS){}
     
     void printWelcomeMessage(); // print welcome message
-    void accountSetup(); // set player status and initial account value; run once
+    void accountSetup(int chips); // set player status and initial account value; run once
     void printAccount(); // print account information for each player
-    PlayerAction playerInput(Player&, bool, bool); // takes input from each player
+    PlayerAction playerInput(BJPlayer&, bool, bool); // takes input from each player
     void printResult(Outcome result); // print result of the play
     void printCard(int); // print a single card in human readable format
     void printDealerCard(const vector<int>& DealerCard, const bool cardHide); //print card of a dealer, with/without hide
-    void printPlayerCard(Player& myP); //print all cards of a single player
+    void printPlayerCard(BJPlayer& myP); //print all cards of a single player
     bool playerBetInput(); // get input bets from players. also check for play/exit
     void updateAccounting(int, int, Outcome); // update account information for each player based on Outcome
     void addBlankLine(int n); // add blank line
     void printLine(string s, bool newline);
+    int returnChips();
 };
 
 
@@ -48,13 +49,20 @@ void Text::printWelcomeMessage()
 
 
 
-void Text::accountSetup()
+void Text::accountSetup(int chips)
 {
     playerStatus.resize(NumPlayer,true);
     myA.resize(NumPlayer);
     for (int i=0;i<NumPlayer;i++)
-        myA[i].initialize(InitialAccountValue,0);
+        myA[i].initialize(chips,0);
     
+}
+
+int Text::returnChips()
+{   
+    for (int i=0;i<NumPlayer;i++)
+    return myA[i].returnChips();
+return 0;
 }
 
 void Text::printAccount()
@@ -65,7 +73,7 @@ void Text::printAccount()
     cout<<endl;
 }
 
-PlayerAction Text::playerInput(Player& myP, bool isFirstTurn, bool isSplitPossible)
+PlayerAction Text::playerInput(BJPlayer& myP, bool isFirstTurn, bool isSplitPossible)
 {
     bool isS, isH, isD, isSp;
     isS = isH = isD = isSp = false;
@@ -196,7 +204,7 @@ void Text::printDealerCard(const vector<int>& DealerCard, const bool cardHide)
 }
 
 
-void Text::printPlayerCard(Player& myP)
+void Text::printPlayerCard(BJPlayer& myP)
 {
     if (!myP.isSplit)
         cout<<"Your Cards : "<<flush;

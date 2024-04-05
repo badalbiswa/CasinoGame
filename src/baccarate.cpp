@@ -130,10 +130,6 @@ void Baccarat::placeBet(int betAmount, int choice) {
     }
 }
 
-int Baccarat::getCurrentBet() const {
-    return currentBet;
-}
-
 void Baccarat::evaluateHands() {
     int playerSum = sumHand(playerHand);
     int bankerSum = sumHand(bankerHand);
@@ -188,7 +184,6 @@ int Game::baccarate() {
     std::cout << "       Welcome to Baccarat!\n";
     std::cout << "------------------------------------------\n";
     
-    int initialChips = User.getChips();
     int initialWinnings = 0;
 
     Baccarat game(User.getChips(), initialWinnings);

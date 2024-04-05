@@ -18,7 +18,7 @@ class Board
     Shoe myShoe;
     unsigned int Seed;
 public:
-    vector<Player> myP;
+    vector<BJPlayer> myP;
     vector<int> DealerCard;
     
     Board(int nplayer, int ndeck, unsigned int s):NumPlayer(nplayer), NumDeck(ndeck), Seed(s),myShoe(ndeck, s){}
@@ -34,8 +34,8 @@ public:
 
     void runGame(Text&, vector<Outcome>&); 
     Outcome dealersTurn(); 
-    Outcome playersTurn(Player& myP,Text& myText, bool&);
-    void performSplitOperation(vector<Player>&myP, vector<Player>::iterator& it); // special operation in case of splitting
+    Outcome playersTurn(BJPlayer& myP,Text& myText, bool&);
+    void performSplitOperation(vector<BJPlayer>&myP, vector<BJPlayer>::iterator& it); // special operation in case of splitting
 };
 
 void Board::createBoard()
@@ -136,7 +136,7 @@ void Board::runGame(Text& myText, vector<Outcome>&Result)
     // print initial board
     myText.printLine("Dealer finished dealing card...current board status:", true);
     myText.printDealerCard(DealerCard, true);
-    for (vector<Player>::iterator it=myP.begin();it!=myP.end();it++)
+    for (vector<BJPlayer>::iterator it=myP.begin();it!=myP.end();it++)
         myText.printPlayerCard(*it);
     
     // perform check to see if dealer/player has blackjack
@@ -147,7 +147,7 @@ void Board::runGame(Text& myText, vector<Outcome>&Result)
     bool isDealerTurn = false; // player made first move
     
     unsigned int counter = 0;
-    vector<Player>::iterator it = myP.begin();
+    vector<BJPlayer>::iterator it = myP.begin();
 
     while(it!=myP.end()) // loop over each player
     {
@@ -227,7 +227,7 @@ Outcome Board::dealersTurn()
         return NONE;
 }
 
-Outcome Board::playersTurn(Player& myP,Text& myText, bool& isSplit)
+Outcome Board::playersTurn(BJPlayer& myP,Text& myText, bool& isSplit)
 {
     Outcome result = NONE; // initialize result
     bool isSplitPossible = ((myP.Card.size()==2) && ( value(myP.Card[0])==value(myP.Card[1]) ) );
@@ -277,9 +277,9 @@ Outcome Board::playersTurn(Player& myP,Text& myText, bool& isSplit)
 }
 
 
-void Board::performSplitOperation(vector<Player>&myP, vector<Player>::iterator& it)
+void Board::performSplitOperation(vector<BJPlayer>&myP, vector<BJPlayer>::iterator& it)
 {
-    it = myP.insert(it+1, Player(it->Id,true,it->SplitId+"-2"));
+    it = myP.insert(it+1, BJPlayer(it->Id,true,it->SplitId+"-2"));
     it--; // to get back to it
     (it+1)->playerBet = it->playerBet; //additional player bet to second split
     (it+1)->Card.push_back(it->Card[1]);
