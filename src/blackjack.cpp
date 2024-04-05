@@ -9,7 +9,7 @@
 #include <stack>
 #include <algorithm>
 #include <random>
-#include <chrono>
+#include <ctime>
 #include "Blackjack.h"
 #include "Text.h"
 #include "Board.h"
@@ -49,8 +49,7 @@ int Game::blackJack() {
   myText.printAccount();
 
   // set seed
-  Seed = static_cast<unsigned int>(std::chrono::system_clock::now()
-      .time_since_epoch().count());
+  Seed = static_cast<unsigned int>(time(nullptr));
 
   // initialize board setup and play related
   Board myBoard(NumPlayer, NumDeck, Seed);

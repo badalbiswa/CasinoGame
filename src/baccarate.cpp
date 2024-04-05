@@ -199,7 +199,20 @@ void Baccarat::evaluateHands() {
 
 int Game::baccarate() {
   std::cout
-      << "This Baccarat simulation code implements the following gameplay. Players start with a set amount of chips and can wager on the outcome of each round. The player and banker each receive two cards. Cards are valued with face cards and tens as zero, aces as one, and others by their pip value, with only the ones digit counting in the total. The player receives a third card if their hand value is five or less. The banker draws a third card based on their hand total and the player's third card (if drawn), following specific rules. The hand closest to nine without going over wins. Winning bets on the player or banker pay 1:1 (with a commission deducted from banker wins), while winning tie bets pay 8:1. The game continues until the player runs out of chips or chooses to stop."
+      << "This Baccarat simulation code implements the following "
+      << "gameplay. Players start with a set amount of chips and can "
+      << "wager on the outcome of each round. The player and banker "
+      << "each receive two cards. Cards are valued with face cards "
+      << "and tens as zero, aces as one, and others by their pip "
+      << "value, with only the ones digit counting in the total. "
+      << "The player receives a third card if their hand value is "
+      << "five or less. The banker draws a third card based on their "
+      << "hand total and the player's third card (if drawn), "
+      << "following specific rules. The hand closest to nine without "
+      << "going over wins. Winning bets on the player or banker pay "
+      << "1:1 (with a commission deducted from banker wins), while "
+      << "winning tie bets pay 8:1. The game continues until the "
+      << "player runs out of chips or chooses to stop."
       << std::endl;
 
   std::cout << "\n------------------------------------------\n";
@@ -238,7 +251,8 @@ int Game::baccarate() {
 
     game.drawPlayerThirdCard();
     const std::vector<Card> &playerHand = game.getPlayerHand();
-    // Assuming playerSum is 5, and banker decides whether to draw a third card based on player's third card
+    // Assuming playerSum is 5, and banker decides whether
+    //to draw a third card based on player's third card
     Card playerThirdCard = playerHand.back();
     game.drawBankerThirdCard(playerThirdCard);
     game.evaluateHands();
