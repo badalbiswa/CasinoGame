@@ -30,8 +30,8 @@ class Board {
 
   void createBoard();
   void initializeBoard(Text&);  // initialize players and perform card dealing
-  bool initialCheckDealer(std::vector<Outcome>& result);  // dealer checks for Blackjack
-  void initialCheckPlayer(std::vector<Outcome>& result);  // player checks for Blackjack
+  bool initialCheckDealer(std::vector<Outcome> &result);  // dealer checks for Blackjack
+  void initialCheckPlayer(std::vector<Outcome> &result);  // player checks for Blackjack
 
   int total(const std::vector<int>&);  // total (best) value of the cards of player/dealer
   int value(const int&);  // blackjack value of a particular card
@@ -40,8 +40,8 @@ class Board {
   void runGame(Text&, std::vector<Outcome>&);
   Outcome dealersTurn();
   Outcome playersTurn(BJPlayer &myP, Text &myText, bool&);
-  void performSplitOperation(std::vector<BJPlayer>& myP,
-                             std::vector<BJPlayer>::iterator& it);  // special operation in case of splitting
+  void performSplitOperation(std::vector<BJPlayer> &myP,
+                             std::vector<BJPlayer>::iterator &it);  // special operation in case of splitting
 };
 
 void Board::createBoard() {
@@ -269,7 +269,8 @@ void Board::performSplitOperation(std::vector<BJPlayer> &myP,
   (it + 1)->Card.push_back(myShoe.pullCard());
 }
 
-Outcome Board::checkResult(const std::vector<int> &PCard, const std::vector<int> &DCard) {
+Outcome Board::checkResult(const std::vector<int> &PCard,
+                           const std::vector<int> &DCard) {
   if (total(PCard) > total(DCard))
     return PLAYER_WIN;
   else if (total(PCard) == total(DCard))
