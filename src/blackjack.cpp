@@ -10,8 +10,8 @@
 #include <algorithm>
 #include <random>
 #include <chrono>
-#include "card_deck.h"
-#include "chips.h"
+#include "myConstants.h"
+#include "Account.h"
 #include "blackjack.h"
 #include "Shoe.h"
 #include "Text.h"
@@ -27,31 +27,35 @@ int main(int argc, const char * argv[])
     std::cout << "       Welcome to Blackjack!\n";
     std::cout << "------------------------------------------\n";
     
-    int NumPlayer = 1;  
-    int NumDeck = 5;
-    bool isRandomSeed = true;
-    unsigned int Seed = 100;     
-    int initialAccountValue = 1000;
-    bool useTextSymbol = false; 
+    // initial set up (this can be changed depending on the need)
+    int NumPlayer = 1;  // number of players
+    int NumDeck = 5;    // number of deck of cards in the shoe
+    bool isRandomSeed = true; // true: random seed, false: fixed seed
+    unsigned int Seed = 100;      // Seed for fixed seed case
+    int initialAccountValue = 1000; //account value for each player
+    bool useTextSymbol = false; // whether to use Unicode symbol or text for suits
     
+    // initialize text graphics and accounting
     Text myText(NumPlayer, initialAccountValue, useTextSymbol);
-    myText.printWelcomeMessage();
-    myText.accountSetup(); 
+    myText.printWelcomeMessage(); // print welcome message
+    myText.accountSetup(); //setup account
     myText.printAccount();
 
-    if (isRandomSeed)
+    // set seed
+    if (isRandomSeed) // if random seed then create Seed
         Seed = (unsigned int)std::chrono::system_clock::now().time_since_epoch().count();
     
+    // initialize board setup and play related
     Board myBoard(NumPlayer, NumDeck, Seed);
     myBoard.createBoard();
     
-    vector<Outcome> result; 
+    vector<Outcome> result; // result vector for each play
     while (myText.playerBetInput())
     {
-        myBoard.initializeBoard(myText); 
-        myBoard.runGame(myText, result); 
-        result.clear(); 
-        myText.printAccount();
+        myBoard.initializeBoard(myText); // at each play initialize player and board
+        myBoard.runGame(myText, result); // run game
+        result.clear(); // clear result for next play
+        myText.printAccount(); // print account status
     }
     
     return 0;
