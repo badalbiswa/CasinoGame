@@ -229,5 +229,7 @@ int Game::slotMachine()
     } while (choice == 1);
 
     std::cout << "You have exited the Slots...\n";
+    User.updateRoom(getCurrentRoom(curRoom.getS()));
+    curRoom = User.getRoom();
     return chips;
 }

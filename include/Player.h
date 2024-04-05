@@ -22,7 +22,7 @@ private:
 
 public:
    Player()
-       : Name(""), Chips(10000), Money(20000),
+       : Name(""), Chips(0), Money(10000),
          Health(100), Thirst(100), Drunkness(0),
          CurrentRoom("Outside", "Border", "Casino Entrance", "Parking Lot", "Border") {}
 
@@ -39,7 +39,7 @@ public:
    void getInfo()
    {
       std::cout << "You checked your stats...\n\nCurrent Location: " << CurrentRoom.getName()
-                << "\nChips: " << Chips << "\nHealth: " << Health << "\nThirst: " << Thirst
+                <<"\nMoney: $"<< Money << "\nChips: " << Chips << "\nHealth: " << Health << "\nThirst: " << Thirst
                 << "\nDrunkness: " << Drunkness << "\nItems: ";
       listInventory();
       std::cout << "\n";
@@ -54,6 +54,14 @@ public:
    void setChips(int chips)
    {
       Chips = chips;
+   }
+   int getMoney()
+   {
+      return Money;
+   }
+   void setMoney(int money)
+   {
+      Money = money;
    }
 
    void addToInventory(const Item &item)
@@ -78,10 +86,11 @@ public:
    void checkItems()
    {
       if (inventory.isEmpty()) {return;}
-      std::string input;
+      int input;
       const std::vector<Item> &items = inventory.getItems();
       for (const Item &item : items)
       {
+         int input;
          if (item.getName() == "Beer")
          {
             std::cout << "Press 1 to drink the beer\n";
@@ -90,10 +99,16 @@ public:
          {
             std::cout << "Press 2 to smoke a cigarette\n";
          }
-         if (item.getName()== "Brass Knuckles")
-         {
-         }
+      }
+      std::cin >> input;
+      if ((input == 1) && inventory.getItemByName("Beer")){
+      std::cout << "You drank the beer, it went down smooth.\n";
+      inventory.removeItemByName("Beer");
 
+      }
+      else if ((input == 2) && inventory.getItemByName("Cigarettes")){
+         std::cout << "You smoked the cigarettes, it felt nice.\n";
+         inventory.removeItemByName("Cigarettes");
       }
    }
    bool hasItem(std::string Citem)

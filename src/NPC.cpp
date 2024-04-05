@@ -12,7 +12,8 @@ void Game::createNPCs()
     HomelessGuy = NPC("Homeless Guy", "Parking Lot", 100, 100, "What are you looking at?", 1);
     Linecook = NPC("John the Linecook", "Bar Outside Exit", 100, 100, "Smoking a ciggy", 1);
     MobBoss = NPC("Mob Boss", "Parking Lot", 100, 100, "Big Burly Guy", 1);
-
+    BankTeller = NPC("Bank Teller", "Casino Bank", 100, 100, "Welcome to the bank", 1);
+    CasinoBoss = NPC("Casino Boss", "", 100, 100,"I am the boss", 1);
     std::cout << "*You walk up to the casino and a homeless man runs through the doors, looking"
               << "back to see if he was being chased out. He runs towards the parking lot.*\n";
 }
@@ -31,7 +32,9 @@ void Game::bar()
     sleep(2);
     std::cout << "Beer has been added to inventory.\npress I to access your inventory and drink the beer!\n";
     sleep(3);
-    std::cout << "\nYou have exited the " << curRoom.getName() << "...";
+    std::cout << "\nYou have exited the " << curRoom.getName() << "...\n";
+    User.updateRoom(getCurrentRoom(curRoom.getW()));
+    curRoom = User.getRoom();
 }
 
 void Game::lineCook()
@@ -90,6 +93,39 @@ void Game::parkingLot()
     }
 }
 
+void Game::casinoBank()
+{
+    int input;
+    int chips = User.getChips();
+    int money = User.getMoney();
+    if (BankTeller.getFight())
+    {
+        std::cout << "Bank Teller: Hello! Welcome to the casino bank, how can I help you?\n";
+        if (money > 0)std::cout << "(1) Exchange money for chips\n";
+        if (chips > 0) std::cout << "(2) Exchange chips for money\n";
+        std::cout << "(3) Leave\n";
+        std::cin >> input;
+        if (input == 1 && money >0)
+        {
+            std::cout << "*You pass her your money*\nBank Teller: Okay! Here you go!\n";
+            User.setChips(chips + money);
+            std::cout << "*You got " << money << " chips*\n";
+            User.setMoney(0);
+        }
+        else if (input == 2 && chips > 0)
+        {
+            std::cout << "*You pass her your chips*\nBank Teller: Okay! Here you go!\n";
+            User.setMoney(money + chips);
+            std::cout << "*You got $" << chips << " *\n";
+            User.setChips(0);
+        }
+
+            std::cout << "You left the Casino Bank...\n";
+            User.updateRoom(getCurrentRoom(curRoom.getS()));
+            curRoom = User.getRoom();
+    }
+}
+
 void Game::mobBoss()
 {
 
@@ -104,7 +140,7 @@ void Game::mobBoss()
     }
     std::cout << "(1) Return the chips to him\n(2) Ignore his commands.\n Your choice: ";
     std::cin >> input;
-    if ((input == 1) && User.getChips() > 20000)
+    if ((input == 1) && User.getChips() >= 20000)
     {
         std::cout << "Good. He almost got away if it wasnt for you, here ill give you something ive been working on.\n"
                   << "Unknown Device... has been added to your inventory\n";

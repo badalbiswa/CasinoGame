@@ -29,6 +29,15 @@ std::string getName() const { return Name; }
         return Name == other.Name;
     }
 
+
+
+Item getByName(const std::string& name) const {
+    if (Name == name)
+    {
+        return *this;
+    } 
+    else return Item();
+}
 };
 
 #endif

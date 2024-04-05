@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include "Item.h"
+#include <algorithm>
  
 class Inventory
 {
@@ -28,6 +29,20 @@ public:
         }
     }
     }
+    const Item* getItemByName(const std::string& name) const {
+    for (const Item& item : items) {
+        if (item.getName() == name) {
+            return &item;
+        }
+    }
+    return nullptr; // Item not found
+}
+void removeItemByName(const std::string& name) {
+    auto it = std::remove_if(items.begin(), items.end(), [&](const Item& item) {
+        return item.getName() == name;
+    });
+    items.erase(it, items.end());
+}
 
 };
 
