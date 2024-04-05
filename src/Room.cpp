@@ -42,22 +42,38 @@ void Game::roomChecks()
     if (curRoom.getName() == "Slots")
     {
         if (User.getChips() > 0) User.setChips(slotMachine());
-        else std::cout << "*You don't have any chips to play casino games*\n";
+        else{ std::cout << "*You don't have any chips to play casino games*\n"
+        << "You have exited " << curRoom.getName() << "\n";
+        User.updateRoom(getCurrentRoom(curRoom.getS()));
+        curRoom = User.getRoom();
+        }
     }
     else if (curRoom.getName() == "Black Jack")
     {
         if (User.getChips() > 0) User.setChips(blackJack());
-        else std::cout << "*You don't have any chips to play casino games*\n";
+        else{ std::cout << "*You don't have any chips to play casino games*\n"
+        << "You have exited " << curRoom.getName() << "\n";
+        User.updateRoom(getCurrentRoom(curRoom.getN()));
+        curRoom = User.getRoom();
+        }
     }
     else if (curRoom.getName() == "Roulette")
     {
        if (User.getChips() > 0) User.setChips(roulette());
-        else std::cout << "*You don't have any chips to play casino games*\n";
+        else{ std::cout << "*You don't have any chips to play casino games*\n"
+        << "You have exited " << curRoom.getName() << "\n";
+        User.updateRoom(getCurrentRoom(curRoom.getE()));
+        curRoom = User.getRoom();
+        }
     }
         else if (curRoom.getName() == "Baccarate")
     {
        if (User.getChips() > 0) User.setChips(baccarate());
-        else std::cout << "*You don't have any chips to play casino games*\n";
+        else{ std::cout << "*You don't have any chips to play casino games*\n"
+        << "You have exited " << curRoom.getName() << "\n";
+        User.updateRoom(getCurrentRoom(curRoom.getW()));
+        curRoom = User.getRoom();
+        }
     }
         else if (curRoom.getName() == "Bar Counter")
     {
@@ -90,7 +106,7 @@ void Game::roomChecks()
 
 void Game::move()
 {
-
+    std::cout << "You are at " << curRoom.getName();
     while (true)
     {
         std::cout << "\n";

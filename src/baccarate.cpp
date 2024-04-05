@@ -235,6 +235,8 @@ int Game::baccarate() {
     } while (choice == 1);
 
     std::cout << "Total winnings: " << game.getTotalWinnings() << std::endl;
-
+    std::cout << "You have exited Baccarate...\n";
+    User.updateRoom(getCurrentRoom(curRoom.getW()));
+    curRoom = User.getRoom();
     return game.getPlayerChips();
 }

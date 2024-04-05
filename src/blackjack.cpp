@@ -260,5 +260,5 @@ int Game::blackJack() {
         std::cin >> playAgain;
     } while (playAgain == 'y');
 
-    return 0;
+    return User.getChips();
 }

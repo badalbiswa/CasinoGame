@@ -31,7 +31,9 @@ void Game::bar()
     sleep(2);
     std::cout << "Beer has been added to inventory.\npress I to access your inventory and drink the beer!\n";
     sleep(3);
-    std::cout << "\nYou have exited the " << curRoom.getName() << "...";
+    std::cout << "\nYou have exited the " << curRoom.getName() << "...\n";
+    User.updateRoom(getCurrentRoom(curRoom.getW()));
+    curRoom = User.getRoom();
 }
 
 void Game::lineCook()
@@ -117,8 +119,9 @@ void Game::casinoBank()
             User.setChips(0);
         }
 
-            std::cout << "You left the Casino Bank...";
+            std::cout << "You left the Casino Bank...\n";
             User.updateRoom(getCurrentRoom(curRoom.getS()));
+            curRoom = User.getRoom();
     }
 }
 

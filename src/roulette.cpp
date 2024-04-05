@@ -381,5 +381,8 @@ int Game::roulette() {
       break;
     }
   }
+    std::cout << "You have exited Roulette...\n";
+    User.updateRoom(getCurrentRoom(curRoom.getE()));
+    curRoom = User.getRoom();  
   return playerChips;
 }
