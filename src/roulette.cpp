@@ -111,7 +111,8 @@ std::string getBetPocket(const std::string &betType) {
       betPocket = "third";
   } else if (betType == "8") {
     std::cout
-        << "Choose the column (1. First column / 2. Second column / 3. Third column): ";
+        << "Choose the column (1. First column / 2. "
+        << "Second column / 3. Third column): ";
     int columnChoice;
     std::cin >> columnChoice;
     if (columnChoice == 1)
@@ -170,7 +171,8 @@ bool validateBet(const std::string &betType, std::string betPocket) {
       return true;
     } else {
       std::cout
-          << "Invalid three-number bet. Please enter a valid starting pocket number."
+          << "Invalid three-number bet. Please enter a valid starting "
+          << "pocket number."
           << std::endl;
       return false;
     }
@@ -184,7 +186,8 @@ bool validateBet(const std::string &betType, std::string betPocket) {
       return true;
     } else {
       std::cout
-          << "Invalid four-number bet. Please enter a valid starting pocket number."
+          << "Invalid four-number bet. Please enter a valid starting "
+          << "pocket number."
           << std::endl;
       return false;
     }
@@ -212,7 +215,8 @@ bool validateBet(const std::string &betType, std::string betPocket) {
       return true;
     } else {
       std::cout
-          << "Invalid six-number bet. Please enter a valid starting pocket number."
+          << "Invalid six-number bet. Please enter a valid starting "
+          << "pocket number."
           << std::endl;
       return false;
     }
@@ -221,7 +225,7 @@ bool validateBet(const std::string &betType, std::string betPocket) {
       return true;
     } else {
       std::cout
-          << "Invalid choice. Please choose between first, secon  std::cout << User.getChips();d, or third."
+          << "Invalid choice. Please choose between first, second, or third."
           << std::endl;
       return false;
     }
@@ -362,7 +366,6 @@ int Game::roulette() {
 
     // Check if the player has run out of chips
     if (playerChips <= 0) {
-
       std::cout << "You have run out of chips. Game over!" << std::endl;
       break;
     }

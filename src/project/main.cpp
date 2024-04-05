@@ -3,8 +3,7 @@
 #include "Game.h"
 #include "Room.h"
 
-int main()
-{
+int main() {
     Game game;
     game.play();
     return 0;
