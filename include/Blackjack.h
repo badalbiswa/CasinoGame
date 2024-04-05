@@ -12,6 +12,7 @@
 #include <stack>
 #include <random>
 #include <algorithm>
+#include <string> // Added for std::string
 
 class BJPlayer {
   int Id;
@@ -71,10 +72,10 @@ enum PlayerAction {
 
 const int NUM_CARD_DECK = 52;
 const int NUM_CARD_SUIT = 13;
-const std::string SUITS[] = { "\u2663", "\u2666", "\u2665", "\u2660" };
-const std::string SUITS_text[] = { "Clubs", "Diamonds", "Hearts", "Spades" };
-const std::string RANK[] = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J",
-    "Q", "K", "A" };
+const char* SUITS[] = { "\u2663", "\u2666", "\u2665", "\u2660" };
+const char* SUITS_text[] = { "Clubs", "Diamonds", "Hearts", "Spades" };
+const char* RANK[] = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J",
+    "Q", "K", "A" }; // Changed to C-style string
 const int BJ = 21;
 const int TwentyOne = 21;
 const int VALUE[] = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11 };
