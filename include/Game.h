@@ -24,6 +24,7 @@ private:
    NPC HomelessGuy;
    NPC Linecook;
    NPC MobBoss;
+   NPC BankTeller;
 
 public:
    Game();
@@ -33,6 +34,7 @@ public:
    Room getCurrentRoom(const std::string &room);
    void play();
    void bar();
+   void casinoBank();
    void lineCook();
    void parkingLot();
    void mobBoss();

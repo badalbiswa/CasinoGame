@@ -22,7 +22,7 @@ private:
 
 public:
    Player()
-       : Name(""), Chips(10000), Money(20000),
+       : Name(""), Chips(0), Money(10000),
          Health(100), Thirst(100), Drunkness(0),
          CurrentRoom("Outside", "Border", "Casino Entrance", "Parking Lot", "Border") {}
 
@@ -39,7 +39,7 @@ public:
    void getInfo()
    {
       std::cout << "You checked your stats...\n\nCurrent Location: " << CurrentRoom.getName()
-                << "\nChips: " << Chips << "\nHealth: " << Health << "\nThirst: " << Thirst
+                <<"\nMoney: $"<< Money << "\nChips: " << Chips << "\nHealth: " << Health << "\nThirst: " << Thirst
                 << "\nDrunkness: " << Drunkness << "\nItems: ";
       listInventory();
       std::cout << "\n";
@@ -54,6 +54,14 @@ public:
    void setChips(int chips)
    {
       Chips = chips;
+   }
+   int getMoney()
+   {
+      return Money;
+   }
+   void setMoney(int money)
+   {
+      Money = money;
    }
 
    void addToInventory(const Item &item)

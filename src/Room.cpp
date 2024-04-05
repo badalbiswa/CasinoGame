@@ -11,8 +11,9 @@ void Game::createRooms()
 
     rooms.push_back(Room("Outside", "Border", "Casino Entrance", "Parking Lot", "Border"));
     rooms.push_back(Room("Parking Lot", "Outside", "Border", "Border", "Border"));
-    rooms.push_back(Room("Casino Entrance", "Border", "Casino Floor", "Border", "Outside"));
-    rooms.push_back(Room("Casino Floor", "Slots", "Bar", "Tables", "Outside"));
+    rooms.push_back(Room("Casino Entrance", "Casino Bank", "Casino Floor", "Border", "Outside"));
+    rooms.push_back(Room("Casino Bank", "Border", "Border", "Casino Entrance", "Border"));
+    rooms.push_back(Room("Casino Floor", "Slots", "Bar", "Tables", "Casino Entrance"));
     rooms.push_back(Room("Bar", "Bathrooms", "Bar Counter", "Bar Outside Exit", "Casino Floor"));
     rooms.push_back(Room("Bar Counter", "Border", "Border", "Border", "Bar"));
     rooms.push_back(Room("Bar Outside Exit", "Bar", "Border", "Border", "Border"));
@@ -40,23 +41,27 @@ void Game::roomChecks()
 {
     if (curRoom.getName() == "Slots")
     {
-        User.setChips(slotMachine());
-    }
-    else if (curRoom.getName() == "Bar Counter")
-    {
-        bar();
+        if (User.getChips() > 0) User.setChips(slotMachine());
+        else std::cout << "*You don't have any chips to play casino games*\n";
     }
     else if (curRoom.getName() == "Black Jack")
     {
-        User.setChips(blackJack());
+        if (User.getChips() > 0) User.setChips(blackJack());
+        else std::cout << "*You don't have any chips to play casino games*\n";
     }
     else if (curRoom.getName() == "Roulette")
     {
-        User.setChips(roulette());
+       if (User.getChips() > 0) User.setChips(roulette());
+        else std::cout << "*You don't have any chips to play casino games*\n";
     }
         else if (curRoom.getName() == "Baccarate")
     {
-        User.setChips(baccarate());
+       if (User.getChips() > 0) User.setChips(baccarate());
+        else std::cout << "*You don't have any chips to play casino games*\n";
+    }
+        else if (curRoom.getName() == "Bar Counter")
+    {
+        bar();
     }
     else if (curRoom.getName() == "Bar Outside Exit")
     {
@@ -66,20 +71,25 @@ void Game::roomChecks()
     {
         parkingLot();
     }
+    else if (curRoom.getName() == "Casino Bank")
+    {
+        casinoBank();
+    }
     else if ((curRoom.getName() == "Casino Floor") && (!MobBoss.getFight()) && (MobBoss.getHealth() != 0))
     {
         mobBoss();
     }
-}
-
-void Game::move()
-{
     srand(time(nullptr));
     int randomNumber = rand() % 5 + 1;
     if ((MobBoss.getFight()) && (randomNumber == 5) && (!HomelessGuy.getFight())) {
         std::cout << "You feel like you are being watched...\n";
         MobBoss.setFight(0);
     }
+
+}
+
+void Game::move()
+{
 
     while (true)
     {
