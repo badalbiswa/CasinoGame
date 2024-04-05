@@ -95,6 +95,17 @@ void Game::roomChecks()
     {
         mobBoss();
     }
+    else if ((curRoom.getName() == "Outside") && (User.getMoney() >= 50000))
+    {
+        std::cout << "You left the casino and were able to save your house...\nYOU WIN\n";
+        exit(0);
+    }
+
+
+}
+
+void Game::move()
+{
     srand(time(nullptr));
     int randomNumber = rand() % 5 + 1;
     if ((MobBoss.getFight()) && (randomNumber == 5) && (!HomelessGuy.getFight())) {
@@ -102,10 +113,6 @@ void Game::roomChecks()
         MobBoss.setFight(0);
     }
 
-}
-
-void Game::move()
-{
     std::cout << "You are at " << curRoom.getName();
     while (true)
     {

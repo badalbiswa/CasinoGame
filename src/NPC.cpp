@@ -139,7 +139,7 @@ void Game::mobBoss()
     }
     std::cout << "(1) Return the chips to him\n(2) Ignore his commands.\n Your choice: ";
     std::cin >> input;
-    if ((input == 1) && User.getChips() > 20000)
+    if ((input == 1) && User.getChips() >= 20000)
     {
         std::cout << "Good. He almost got away if it wasnt for you, here ill give you something ive been working on.\n"
                   << "Unknown Device... has been added to your inventory\n";
