@@ -15,6 +15,7 @@ class Room {
   std::string borderEast;
   std::string borderSouth;
   std::string borderWest;
+  std::string Desc;
 
  public:
   Room()
@@ -23,16 +24,18 @@ class Room {
       borderNorth(""),
       borderEast(""),
       borderSouth(""),
-      borderWest("") {
+      borderWest(""),
+      Desc("") {
   }
 
   Room(std::string name, std::string N, std::string E, std::string S,
-       std::string W) {
+       std::string W, std::string desc) {
     Name = name;
     borderNorth = N;
     borderEast = E;
     borderSouth = S;
     borderWest = W;
+    Desc = desc;
   }
 
   std::string getName() const {
@@ -49,6 +52,9 @@ class Room {
   }
   std::string getW() {
     return borderWest;
+  }
+  std::string getDesc(){
+    return Desc;
   }
 };
 

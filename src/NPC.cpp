@@ -24,11 +24,8 @@ void Game::createNPCs() {
   BankTeller = NPC("Bank Teller", "Casino Bank", 100, 100,
                    "Welcome to the bank", 1);
   CasinoBoss = NPC("Casino Boss", "", 100, 100, "I am the boss", 1);
-  std::cout
-      << "*You walk up to the casino and a homeless man "
-      << "runs through the doors, looking"
-      << "back to see if he was being chased out. He runs "
-      << "towards the parking lot.*\n";
+  BathroomDude = NPC("The guy behind stall door", "", 100, 100,
+  "Smoking a ciggy", 1);
 }
 
 void Game::bar() {
@@ -51,6 +48,25 @@ void Game::bar() {
   std::cout << "\nYou have exited the " << curRoom.getName() << "...\n";
   User.updateRoom(getCurrentRoom(curRoom.getW()));
   curRoom = User.getRoom();
+}
+
+void Game::bathroom() {
+  std::string input;
+
+  std::cout << "You notice a guy in the stalls smoking cigarettes\n"
+  << "(1) Hey man you shouldnt be smoking in here\n"
+  << "(2) Hey! Im the Casino Boss, pass over you cigarettes before I kick "
+  << "you out of here!\n"
+  << "(3) Do nothing\n";
+  std::cin >> input;
+  if (input == "1") {
+    std::cout << "The man behind the stall door: Hey mind your own buisness!\n";
+  } else if (input == "2") {
+    std::cout << "The man behind the stall door: Im sorry, here take them!\n"
+    << "*The guy passes you the cigarettes underneath the stall door*\n"
+    << "Cigarettes have been added to Inventory\n";
+    User.addToInventory(Cigarette);
+  }
 }
 
 void Game::lineCook() {

@@ -31,11 +31,13 @@ class Game {
   NPC MobBoss;
   NPC BankTeller;
   NPC CasinoBoss;
+  NPC BathroomDude;
 
  public:
   friend class Player;
   friend class Account;
   Game();
+  void startUpInfo();
   void createRooms();
   void createNPCs();
   void createItems();
@@ -45,6 +47,7 @@ class Game {
   void casinoBank();
   void lineCook();
   void parkingLot();
+  void bathroom();
   void mobBoss();
   int slotMachine();
   int blackJack();

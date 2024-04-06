@@ -34,6 +34,5 @@ void Game::createItems() {
           "with this mysterious gadget. "
           "Just don't let the casino catch wind of it... shhh!",
           0);
-  User.addToInventory(Cigarette);
 }
 
