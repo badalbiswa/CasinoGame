@@ -126,9 +126,46 @@ void Game::roomChecks() {
         << "You are able to leave the casino now that you have over $50000\n"
         << "Would you like to leave?\n(1) Yes\n(2) No\n";
     std::cin >> input;
-    if (input == "1") {
+    if ((input == "1") && (!HomelessGuy.getFight())
+    && (MobBoss.getHealth() != 0)) {
+      std::cout << "You hopped in your car and took off down the road excited "
+      << "to get home and finally relax!\nBUT...";
+      sleep(3);
+      std::cout << "You try to stop at the end of the "
+      << "road and you tried brake but "
+      << "your breaks failed and you fell of the bridge!\n";
+      sleep(2);
+      std::cout << "The Casino Hacker cut your brake lines for "
+      << "leaving without paying him back!\n";
+      sleep(2);
+      std::cout << "YOU DIED\n";
+      sleep(1);
+      exit(0);
+    } else if ((input == "1") && (User.hasItem("Unknown Device..."))) {
+      std::cout << "You hopped in your car and took off down the road excited "
+      << "to get home and finally relax!\nBUT...";
+      sleep(3);
+      std::cout << "You try to stop at the end of the "
+      << "road and you tried brake but "
+      << "your breaks failed and you fell of the bridge!\n";
+      sleep(2);
+      std::cout << "The Casino Manager cut your brake lines for "
+      << "because he seen you with the Slot Rigger and your winnings"
+      << "as you left!\n";
+      sleep(2);
+      std::cout << "YOU DIED\n";
+      sleep(1);
+      exit(0);
+    } else if (input == "1") {
       std::cout
-      << "You left the casino and were able to save your house...\nYOU WIN\n";
+      << "You left the casino and drove home safely...\n";
+      sleep(2);
+      std::cout << "You can rest assured that your life "
+      << "is safe and your bar will continue"
+      << "to stay open!\n";
+      sleep(2);
+      std::cout << "YOU WIN!\n";
+      sleep(1);
       exit(0);
     }
   }

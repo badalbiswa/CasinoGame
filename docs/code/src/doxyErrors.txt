@@ -1,68 +1,159 @@
-/home/bisb2720/p-2-group-f/include/card.h:19: warning: Compound Card is not documented.
-/home/bisb2720/p-2-group-f/include/Game.h:9: warning: Compound Game is not documented.
-/home/bisb2720/p-2-group-f/include/Inventory.h:8: warning: Compound Inventory is not documented.
-/home/bisb2720/p-2-group-f/include/Item.h:6: warning: Compound Item is not documented.
-/home/bisb2720/p-2-group-f/include/NPC.h:5: warning: Compound NPC is not documented.
-/home/bisb2720/p-2-group-f/include/Player.h:11: warning: Compound Player is not documented.
-/home/bisb2720/p-2-group-f/include/Room.h:5: warning: Compound Room is not documented.
-/home/bisb2720/p-2-group-f/include/card.h:20: warning: Member rank (variable) of struct Card is not documented.
-/home/bisb2720/p-2-group-f/include/card.h:21: warning: Member suit (variable) of struct Card is not documented.
-/home/bisb2720/p-2-group-f/include/deck.h:20: warning: Member shuffle() (function) of class Deck is not documented.
-/home/bisb2720/p-2-group-f/include/deck.h:21: warning: Member dealCard() (function) of class Deck is not documented.
-/home/bisb2720/p-2-group-f/include/deck.h:22: warning: Member cardsLeft() const (function) of class Deck is not documented.
-/home/bisb2720/p-2-group-f/include/deck.h:16: warning: Member cards (variable) of class Deck is not documented.
-/home/bisb2720/p-2-group-f/include/Game.h:19: warning: Member createRooms() (function) of class Game is not documented.
-/home/bisb2720/p-2-group-f/include/Game.h:20: warning: Member createNPCs() (function) of class Game is not documented.
-/home/bisb2720/p-2-group-f/include/Game.h:21: warning: Member createItems() (function) of class Game is not documented.
-/home/bisb2720/p-2-group-f/include/Game.h:22: warning: Member getCurrentRoom(const std::string &room) (function) of class Game is not documented.
-/home/bisb2720/p-2-group-f/include/Game.h:23: warning: Member play() (function) of class Game is not documented.
-/home/bisb2720/p-2-group-f/include/Game.h:24: warning: Member bar() (function) of class Game is not documented.
-/home/bisb2720/p-2-group-f/include/Game.h:25: warning: Member slotMachine() (function) of class Game is not documented.
-/home/bisb2720/p-2-group-f/include/Game.h:26: warning: Member blackJack() (function) of class Game is not documented.
-/home/bisb2720/p-2-group-f/include/Game.h:27: warning: Member roomChecks() (function) of class Game is not documented.
-/home/bisb2720/p-2-group-f/include/Game.h:28: warning: Member move() (function) of class Game is not documented.
-/home/bisb2720/p-2-group-f/include/Game.h:12: warning: Member User (variable) of class Game is not documented.
-/home/bisb2720/p-2-group-f/include/Game.h:13: warning: Member curRoom (variable) of class Game is not documented.
-/home/bisb2720/p-2-group-f/include/Game.h:14: warning: Member rooms (variable) of class Game is not documented.
-/home/bisb2720/p-2-group-f/include/Game.h:15: warning: Member Beer (variable) of class Game is not documented.
-/home/bisb2720/p-2-group-f/include/Inventory.h:14: warning: Member addItem(const Item &newItem) (function) of class Inventory is not documented.
-/home/bisb2720/p-2-group-f/include/Inventory.h:17: warning: Member getItems() const (function) of class Inventory is not documented.
-/home/bisb2720/p-2-group-f/include/Inventory.h:11: warning: Member items (variable) of class Inventory is not documented.
-/home/bisb2720/p-2-group-f/include/Item.h:17: warning: Member Item(std::string name, std::string description, int price) (function) of class Item is not documented.
-/home/bisb2720/p-2-group-f/include/Item.h:24: warning: Member getName() const (function) of class Item is not documented.
-/home/bisb2720/p-2-group-f/include/Item.h:9: warning: Member Name (variable) of class Item is not documented.
-/home/bisb2720/p-2-group-f/include/Item.h:10: warning: Member Description (variable) of class Item is not documented.
-/home/bisb2720/p-2-group-f/include/Item.h:11: warning: Member Price (variable) of class Item is not documented.
-/home/bisb2720/p-2-group-f/include/NPC.h:16: warning: Member NPC(std::string name, std::string room, int money, float hp, std::string dialog, bool fightable) (function) of class NPC is not documented.
-/home/bisb2720/p-2-group-f/include/NPC.h:8: warning: Member Name (variable) of class NPC is not documented.
-/home/bisb2720/p-2-group-f/include/NPC.h:9: warning: Member Room (variable) of class NPC is not documented.
-/home/bisb2720/p-2-group-f/include/NPC.h:10: warning: Member Money (variable) of class NPC is not documented.
-/home/bisb2720/p-2-group-f/include/NPC.h:11: warning: Member Health (variable) of class NPC is not documented.
-/home/bisb2720/p-2-group-f/include/NPC.h:12: warning: Member Dialog (variable) of class NPC is not documented.
-/home/bisb2720/p-2-group-f/include/NPC.h:13: warning: Member Fightable (variable) of class NPC is not documented.
-/home/bisb2720/p-2-group-f/include/Player.h:29: warning: Member getRoom() (function) of class Player is not documented.
-/home/bisb2720/p-2-group-f/include/Player.h:34: warning: Member updateRoom(Room room) (function) of class Player is not documented.
-/home/bisb2720/p-2-group-f/include/Player.h:39: warning: Member getInfo() (function) of class Player is not documented.
-/home/bisb2720/p-2-group-f/include/Player.h:46: warning: Member getChips() (function) of class Player is not documented.
-/home/bisb2720/p-2-group-f/include/Player.h:51: warning: Member setChips(int chips) (function) of class Player is not documented.
-/home/bisb2720/p-2-group-f/include/Player.h:56: warning: Member addToInventory(const Item &item) (function) of class Player is not documented.
-/home/bisb2720/p-2-group-f/include/Player.h:60: warning: Member listInventory() const (function) of class Player is not documented.
-/home/bisb2720/p-2-group-f/include/Player.h:14: warning: Member Name (variable) of class Player is not documented.
-/home/bisb2720/p-2-group-f/include/Player.h:15: warning: Member Chips (variable) of class Player is not documented.
-/home/bisb2720/p-2-group-f/include/Player.h:16: warning: Member Money (variable) of class Player is not documented.
-/home/bisb2720/p-2-group-f/include/Player.h:17: warning: Member Health (variable) of class Player is not documented.
-/home/bisb2720/p-2-group-f/include/Player.h:18: warning: Member Thirst (variable) of class Player is not documented.
-/home/bisb2720/p-2-group-f/include/Player.h:19: warning: Member Drunkness (variable) of class Player is not documented.
-/home/bisb2720/p-2-group-f/include/Player.h:20: warning: Member CurrentRoom (variable) of class Player is not documented.
-/home/bisb2720/p-2-group-f/include/Player.h:21: warning: Member inventory (variable) of class Player is not documented.
-/home/bisb2720/p-2-group-f/include/Room.h:21: warning: Member Room(std::string name, std::string N, std::string E, std::string S, std::string W) (function) of class Room is not documented.
-/home/bisb2720/p-2-group-f/include/Room.h:31: warning: Member getName() const (function) of class Room is not documented.
-/home/bisb2720/p-2-group-f/include/Room.h:35: warning: Member getN() (function) of class Room is not documented.
-/home/bisb2720/p-2-group-f/include/Room.h:39: warning: Member getE() (function) of class Room is not documented.
-/home/bisb2720/p-2-group-f/include/Room.h:43: warning: Member getS() (function) of class Room is not documented.
-/home/bisb2720/p-2-group-f/include/Room.h:47: warning: Member getW() (function) of class Room is not documented.
-/home/bisb2720/p-2-group-f/include/Room.h:8: warning: Member Name (variable) of class Room is not documented.
-/home/bisb2720/p-2-group-f/include/Room.h:9: warning: Member borderNorth (variable) of class Room is not documented.
-/home/bisb2720/p-2-group-f/include/Room.h:10: warning: Member borderEast (variable) of class Room is not documented.
-/home/bisb2720/p-2-group-f/include/Room.h:11: warning: Member borderSouth (variable) of class Room is not documented.
-/home/bisb2720/p-2-group-f/include/Room.h:12: warning: Member borderWest (variable) of class Room is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:41: warning: Compound Account is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:8: warning: Compound Board is not documented.
+/home/catr2720/p-2-group-f/include/Card.h:30: warning: Compound Card is not documented.
+/home/catr2720/p-2-group-f/include/Card.h:80: warning: Compound Deck is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:18: warning: Compound Player is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:83: warning: Compound Shoe is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:17: warning: Compound Text is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:46: warning: Member initialize(double c, int b) (function) of class Account is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:49: warning: Member returnChips() (function) of class Account is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:45: warning: Member initialBet (variable) of class Account is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:42: warning: Member PlayerChips (variable) of class Account is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:28: warning: Member BJPlayer(int id, bool split, std::string spid) (function) of class BJPlayer is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:34: warning: Member initialize(int id, bool split, std::string spid) (function) of class BJPlayer is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:18: warning: Member Id (variable) of class BJPlayer is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:19: warning: Member isSplit (variable) of class BJPlayer is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:20: warning: Member SplitId (variable) of class BJPlayer is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:21: warning: Member Card (variable) of class BJPlayer is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:22: warning: Member playerBet (variable) of class BJPlayer is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:17: warning: Member Board(int nplayer, int ndeck, unsigned int s) (function) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:20: warning: Member createBoard() (function) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:21: warning: Member initializeBoard(Text &) (function) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:22: warning: Member initialCheckDealer(std::vector< Outcome > *result) (function) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:23: warning: Member initialCheckPlayer(std::vector< Outcome > *result) (function) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:24: warning: Member total(const std::vector< int > &) (function) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:25: warning: Member value(const int &) (function) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:26: warning: Member checkResult(const std::vector< int > &, const std::vector< int > &) (function) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:27: warning: Member runGame(Text &, std::vector< Outcome > &) (function) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:28: warning: Member dealersTurn() (function) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:29: warning: Member playersTurn(BJPlayer *myP, Text *myText, bool &) (function) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:30: warning: Member performSplitOperation(std::vector< BJPlayer > *myP, std::vector< BJPlayer >::iterator *it) (function) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:14: warning: Member myP (variable) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:15: warning: Member DealerCard (variable) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:9: warning: Member NumDeck (variable) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:10: warning: Member NumPlayer (variable) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:11: warning: Member myShoe (variable) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Board.h:12: warning: Member Seed (variable) of class Board is not documented.
+/home/catr2720/p-2-group-f/include/Card.h:31: warning: Member rank (variable) of struct Card is not documented.
+/home/catr2720/p-2-group-f/include/Card.h:32: warning: Member suit (variable) of struct Card is not documented.
+/home/catr2720/p-2-group-f/include/Card.h:86: warning: Member shuffle() (function) of class Deck is not documented.
+/home/catr2720/p-2-group-f/include/Card.h:87: warning: Member dealCard() (function) of class Deck is not documented.
+/home/catr2720/p-2-group-f/include/Card.h:88: warning: Member cardsLeft() const (function) of class Deck is not documented.
+/home/catr2720/p-2-group-f/include/Card.h:82: warning: Member cards (variable) of class Deck is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:40: warning: Member startUpInfo() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:41: warning: Member createRooms() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:42: warning: Member createNPCs() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:43: warning: Member createItems() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:44: warning: Member getCurrentRoom(const std::string &room) (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:45: warning: Member play() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:46: warning: Member bar() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:47: warning: Member casinoBank() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:48: warning: Member lineCook() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:49: warning: Member parkingLot() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:50: warning: Member bathroom() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:51: warning: Member mobBoss() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:52: warning: Member slotMachine() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:53: warning: Member blackJack() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:54: warning: Member roulette() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:55: warning: Member baccarate() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:56: warning: Member roomChecks() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:57: warning: Member move() (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:58: warning: Member sleep(int time) (function) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:20: warning: Member User (variable) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:21: warning: Member curRoom (variable) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:22: warning: Member rooms (variable) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:23: warning: Member Beer (variable) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:24: warning: Member Cigarette (variable) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:25: warning: Member BrassKnuckles (variable) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:26: warning: Member UnknownDevice (variable) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:27: warning: Member Bartender (variable) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:28: warning: Member Dealer (variable) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:29: warning: Member HomelessGuy (variable) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:30: warning: Member Linecook (variable) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:31: warning: Member MobBoss (variable) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:32: warning: Member BankTeller (variable) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:33: warning: Member CasinoBoss (variable) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Game.h:34: warning: Member BathroomDude (variable) of class Game is not documented.
+/home/catr2720/p-2-group-f/include/Inventory.h:20: warning: Member addItem(const Item &newItem) (function) of class Inventory is not documented.
+/home/catr2720/p-2-group-f/include/Inventory.h:23: warning: Member getItems() const (function) of class Inventory is not documented.
+/home/catr2720/p-2-group-f/include/Inventory.h:26: warning: Member isEmpty() (function) of class Inventory is not documented.
+/home/catr2720/p-2-group-f/include/Inventory.h:29: warning: Member removeItem(const Item &itemToRemove) (function) of class Inventory is not documented.
+/home/catr2720/p-2-group-f/include/Inventory.h:37: warning: Member getItemByName(const std::string &name) const (function) of class Inventory is not documented.
+/home/catr2720/p-2-group-f/include/Inventory.h:45: warning: Member removeItemByName(const std::string &name) (function) of class Inventory is not documented.
+/home/catr2720/p-2-group-f/include/Inventory.h:17: warning: Member items (variable) of class Inventory is not documented.
+/home/catr2720/p-2-group-f/include/Item.h:26: warning: Member Item(std::string name, std::string description, int price) (function) of class Item is not documented.
+/home/catr2720/p-2-group-f/include/Item.h:32: warning: Member getName() const (function) of class Item is not documented.
+/home/catr2720/p-2-group-f/include/Item.h:36: warning: Member operator==(const Item &other) const (function) of class Item is not documented.
+/home/catr2720/p-2-group-f/include/Item.h:42: warning: Member getByName(const std::string &name) const (function) of class Item is not documented.
+/home/catr2720/p-2-group-f/include/Item.h:14: warning: Member Name (variable) of class Item is not documented.
+/home/catr2720/p-2-group-f/include/Item.h:15: warning: Member Description (variable) of class Item is not documented.
+/home/catr2720/p-2-group-f/include/Item.h:16: warning: Member Price (variable) of class Item is not documented.
+/home/catr2720/p-2-group-f/include/NPC.h:30: warning: Member NPC(std::string name, std::string room, int money, float hp, std::string dialog, bool fightable) (function) of class NPC is not documented.
+/home/catr2720/p-2-group-f/include/NPC.h:39: warning: Member getHealth() (function) of class NPC is not documented.
+/home/catr2720/p-2-group-f/include/NPC.h:42: warning: Member setHealth(float health) (function) of class NPC is not documented.
+/home/catr2720/p-2-group-f/include/NPC.h:45: warning: Member getFight() (function) of class NPC is not documented.
+/home/catr2720/p-2-group-f/include/NPC.h:48: warning: Member setFight(bool fight) (function) of class NPC is not documented.
+/home/catr2720/p-2-group-f/include/NPC.h:13: warning: Member Name (variable) of class NPC is not documented.
+/home/catr2720/p-2-group-f/include/NPC.h:14: warning: Member Room (variable) of class NPC is not documented.
+/home/catr2720/p-2-group-f/include/NPC.h:15: warning: Member Money (variable) of class NPC is not documented.
+/home/catr2720/p-2-group-f/include/NPC.h:16: warning: Member Health (variable) of class NPC is not documented.
+/home/catr2720/p-2-group-f/include/NPC.h:17: warning: Member Dialog (variable) of class NPC is not documented.
+/home/catr2720/p-2-group-f/include/NPC.h:18: warning: Member Fightable (variable) of class NPC is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:43: warning: Member getRoom() (function) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:47: warning: Member updateRoom(Room room) (function) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:51: warning: Member getInfo() (function) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:61: warning: Member getChips() (function) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:65: warning: Member setChips(int chips) (function) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:68: warning: Member getMoney() (function) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:71: warning: Member setMoney(int money) (function) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:75: warning: Member addToInventory(const Item &item) (function) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:79: warning: Member removeFromInventory(const Item &item) (function) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:83: warning: Member listInventory() const (function) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:90: warning: Member checkItems() (function) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:118: warning: Member hasItem(std::string Citem) (function) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:20: warning: Member Name (variable) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:21: warning: Member Chips (variable) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:22: warning: Member Money (variable) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:23: warning: Member Health (variable) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:24: warning: Member Thirst (variable) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:25: warning: Member Drunkness (variable) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:26: warning: Member CurrentRoom (variable) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Player.h:27: warning: Member inventory (variable) of class Player is not documented.
+/home/catr2720/p-2-group-f/include/Room.h:31: warning: Member Room(std::string name, std::string N, std::string E, std::string S, std::string W, std::string desc) (function) of class Room is not documented.
+/home/catr2720/p-2-group-f/include/Room.h:41: warning: Member getName() const (function) of class Room is not documented.
+/home/catr2720/p-2-group-f/include/Room.h:44: warning: Member getN() (function) of class Room is not documented.
+/home/catr2720/p-2-group-f/include/Room.h:47: warning: Member getE() (function) of class Room is not documented.
+/home/catr2720/p-2-group-f/include/Room.h:50: warning: Member getS() (function) of class Room is not documented.
+/home/catr2720/p-2-group-f/include/Room.h:53: warning: Member getW() (function) of class Room is not documented.
+/home/catr2720/p-2-group-f/include/Room.h:56: warning: Member getDesc() (function) of class Room is not documented.
+/home/catr2720/p-2-group-f/include/Room.h:13: warning: Member Name (variable) of class Room is not documented.
+/home/catr2720/p-2-group-f/include/Room.h:14: warning: Member borderNorth (variable) of class Room is not documented.
+/home/catr2720/p-2-group-f/include/Room.h:15: warning: Member borderEast (variable) of class Room is not documented.
+/home/catr2720/p-2-group-f/include/Room.h:16: warning: Member borderSouth (variable) of class Room is not documented.
+/home/catr2720/p-2-group-f/include/Room.h:17: warning: Member borderWest (variable) of class Room is not documented.
+/home/catr2720/p-2-group-f/include/Room.h:18: warning: Member Desc (variable) of class Room is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:88: warning: Member Shoe(int n, unsigned int s) (function) of class Shoe is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:93: warning: Member CreateShoe() (function) of class Shoe is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:94: warning: Member pullCard() (function) of class Shoe is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:84: warning: Member NumDeck (variable) of class Shoe is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:85: warning: Member ShoeCard (variable) of class Shoe is not documented.
+/home/catr2720/p-2-group-f/include/Blackjack.h:86: warning: Member Seed (variable) of class Shoe is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:26: warning: Member Text(int n, int m, bool useTS) (function) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:33: warning: Member printWelcomeMessage() (function) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:34: warning: Member accountSetup(int chips) (function) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:36: warning: Member printAccount() (function) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:37: warning: Member playerInput(BJPlayer &, bool, bool) (function) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:39: warning: Member printResult(Outcome result) (function) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:40: warning: Member printCard(int) (function) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:41: warning: Member printDealerCard(const std::vector< int > &DealerCard, const bool cardHide) (function) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:43: warning: Member printPlayerCard(const BJPlayer &myP) (function) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:45: warning: Member playerBetInput() (function) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:47: warning: Member updateAccounting(int, int, Outcome) (function) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:49: warning: Member addBlankLine(int n) (function) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:50: warning: Member printLine(std::string s, bool newline) (function) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:51: warning: Member returnChips() (function) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:23: warning: Member playerStatus (variable) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:24: warning: Member myA (variable) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:18: warning: Member NumPlayer (variable) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:19: warning: Member InitialAccountValue (variable) of class Text is not documented.
+/home/catr2720/p-2-group-f/include/Text.h:20: warning: Member useTextSymbol (variable) of class Text is not documented.
