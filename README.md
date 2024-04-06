@@ -37,4 +37,5 @@ Renzo:
 - Was responsible for the implemntation Game.h, Item.h, NPC.h, PlaceBoClass, Player.h, Room.h, Game.cpp, NPC.cpp, PlaceboClass.cpp, Player.cpp, Room.cpp
 
 Final Notes:
+- There are alot of different winning condetions.
 

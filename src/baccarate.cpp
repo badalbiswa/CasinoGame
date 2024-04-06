@@ -198,6 +198,7 @@ void Baccarat::evaluateHands() {
 }
 
 int Game::baccarate() {
+  std::cout << "RULES" << std::endl;
   std::cout
       << "This Baccarat simulation code implements the following "
       << "gameplay. Players start with a set amount of chips and can "

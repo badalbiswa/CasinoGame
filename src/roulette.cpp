@@ -270,7 +270,23 @@ int Game::roulette() {
   playerChips = User.getChips();
   std::srand(std::time(0));
 
-  std::cout << "Welcome to the Roulette Wheel Game!" << std::endl;
+  std::cout << "RULES" << std::endl;
+  std::cout << "Roulette is a game of chance played on a numbered wheel."
+   <<"You bet on where a small ball will land,"
+   << "with various options for placing chips."
+   << "Inside bets focus on single numbers or small"
+   << "groups (e.g., straight up, split),"
+   << "offering high payouts but lower odds. Outside bets cover larger sections"
+   << "(e.g., dozens, red/black), paying less but winning more frequently."
+   << "The dealer spins the wheel, bets close, the ball settles, and"
+   << "winning bets are paid according to the odds. Remember,"
+   << "the casino has an edge due to the zero(s) on the wheel."
+   << std::endl;
+
+  std::cout << "\n------------------------------------------\n";
+  std::cout << "       Welcome to Baccarat!\n";
+  std::cout << "------------------------------------------\n";
+
   while (true) {
     // Get the bet from the player
     int betAmount = getBetAmount(playerChips);
