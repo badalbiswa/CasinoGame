@@ -17,7 +17,6 @@
 
 
 int Game::blackJack() {
-  Game game;
   std::cout << "RULES" << std::endl;
   std::cout
       << "Blackjack (21) is a battle against the dealer to reach "

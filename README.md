@@ -31,11 +31,28 @@ Group F
 Renzo Cattoni, Badal Biswa
 
 Badal:
-- Was responsible for the implemntation deck.h, card.h, blackjack.cpp, deck.cpp, baccarate.cpp, roulette.cpp, slot.cpp
+- Was responsible for the implementation of card.h, Blackjack.cpp, deck.cpp, baccarate.cpp, roulette.cpp, slot.cpp, Blackjack.h, Board.h, Text.h
+- Worked on the story and goal
+- Worked style check
+- Worked on the character dialogue  
 
-Renzo: 
-- Was responsible for the implemntation Game.h, Item.h, NPC.h, PlaceBoClass, Player.h, Room.h, Game.cpp, NPC.cpp, PlaceboClass.cpp, Player.cpp, Room.cpp
+Renzo:
+- Was responsible for the implementation of Game.h, Item.h, NPC.h, PlaceBoClass, Player.h, Room.h, Game.cpp, NPC.cpp, PlaceboClass.cpp, Player.cpp, Room.cpp
+- Worked on the story and goal
+- Worked style check, memcheck, and coverage.  
+- Worked on the character dialogue  
+
 
 Final Notes:
-- There are alot of different winning condetions.
+- Some hidden quest, make sure to explore all rooms, and all the different interaction options. 
+- There are some puzzles to be solved. 
+- If you find an Unknown Device, go to Slot for better odds.
+- To find the Unknown Device the player must beat up the homeless guys and get the chips and after trade it with the Casino Hacker for the Unknown Device. 
+- To beat the homeless guy, the player will need the Brass Knuckles.
+- To get the Brass Knuckles player will need to trade cigarettes with the Line cook.
+- To get the cigarettes, the player must pretend to be the casino manager to the guy in the washroom.
+- There are different winning and losing conditions.
+- To win the game the player must convert the chips to money and walk out of the casino. 
+ - If the player used the Unknown Device to win, the Player must give it to the homeguy when leaving to the casino or else the casino boss will know, and the Player will lose the game.
+- Players can lose if they run out of money, and are beaten up by the homeless guy, without the secret item. If a player is caught cheating by the casino boss the player will also lose.
 

@@ -19,16 +19,16 @@ class Board {
 
   void createBoard();
   void initializeBoard(Text&);
-  bool initialCheckDealer(std::vector<Outcome>& result);
-  void initialCheckPlayer(std::vector<Outcome>& result);
+  bool initialCheckDealer(std::vector<Outcome>* result);
+  void initialCheckPlayer(std::vector<Outcome>* result);
   int total(const std::vector<int>&);
   int value(const int&);
   Outcome checkResult(const std::vector<int>&, const std::vector<int>&);
   void runGame(Text&, std::vector<Outcome>&);
   Outcome dealersTurn();
-  Outcome playersTurn(BJPlayer& myP, Text& myText, bool&);
-  void performSplitOperation(std::vector<BJPlayer>& myP,
-    std::vector<BJPlayer>::iterator& it);
+  Outcome playersTurn(BJPlayer* myP, Text* myText, bool&);
+  void performSplitOperation(std::vector<BJPlayer>* myP,
+    std::vector<BJPlayer>::iterator* it);
 };
 
 void Board::createBoard() {
@@ -56,28 +56,28 @@ void Board::initializeBoard(Text& myText) {
   DealerCard.push_back(myShoe.pullCard());
 }
 
-bool Board::initialCheckDealer(std::vector<Outcome>& result) {
+bool Board::initialCheckDealer(std::vector<Outcome>* result) {
   if (total(DealerCard) == BJ) {
     for (int i = 0; i < NumPlayer; i++) {
       if (total(myP[i].Card) == BJ)
-        result.push_back(PUSH);
+        result->push_back(PUSH); // Use -> instead of .
       else
-        result.push_back(DEALER_BJ);
+        result->push_back(DEALER_BJ); // Use -> instead of .
     }
     return true;
   }
-
   return false;
 }
 
-void Board::initialCheckPlayer(std::vector<Outcome>& result) {
+void Board::initialCheckPlayer(std::vector<Outcome>* result) {
   for (int i = 0; i < NumPlayer; i++) {
     if (total(myP[i].Card) == BJ)
-      result.push_back(PLAYER_BJ);
+      result->push_back(PLAYER_BJ); // Use -> instead of .
     else
-      result.push_back(NONE);
+      result->push_back(NONE); // Use -> instead of .
   }
 }
+
 
 int Board::value(const int& card) {
   return VALUE[card % NUM_CARD_DECK % NUM_CARD_SUIT];
@@ -116,9 +116,9 @@ void Board::runGame(Text& myText, std::vector<Outcome>& Result) {
   for (std::vector<BJPlayer>::iterator it = myP.begin(); it != myP.end(); it++)
     myText.printPlayerCard(*it);
 
-  bool isDealerBJ = initialCheckDealer(Result);
+  bool isDealerBJ = initialCheckDealer(&Result);
   if (!isDealerBJ)
-    initialCheckPlayer(Result);
+    initialCheckPlayer(&Result);
 
   bool isDealerTurn = false;
   unsigned int counter = 0;
@@ -129,9 +129,9 @@ void Board::runGame(Text& myText, std::vector<Outcome>& Result) {
     myText.printPlayerCard(*it);
     if (Result[counter] != PLAYER_BJ) {
       bool isSplit;
-      Result[counter] = playersTurn(*it, myText, isSplit);
+      Result[counter] = playersTurn(&(*it), &myText, isSplit);
       if (isSplit) {
-        performSplitOperation(myP, it);
+        performSplitOperation(&myP, &it);
         Result.insert(Result.begin() + counter + 1, NONE);
       } else {
         if (Result[counter] == PLAYER_BUST)
@@ -183,25 +183,25 @@ Outcome Board::dealersTurn() {
     return NONE;
 }
 
-Outcome Board::playersTurn(BJPlayer& myP, Text& myText, bool& isSplit) {
+Outcome Board::playersTurn(BJPlayer* myP, Text* myText, bool& isSplit) {
   Outcome result = NONE;
-  bool isSplitPossible = ((myP.Card.size() == 2)
-  && (value(myP.Card[0]) == value(myP.Card[1])));
+  bool isSplitPossible = ((myP->Card.size() == 2)
+  && (value(myP->Card[0]) == value(myP->Card[1])));
   isSplit = false;
   bool isFirstTurn = true;
 
   bool isPlayerTurn = true;
   while (isPlayerTurn) {
-    PlayerAction playerInput = myText.playerInput
-    (myP, isFirstTurn, isSplitPossible);
+    PlayerAction playerInput = myText->playerInput
+    (*myP, isFirstTurn, isSplitPossible);
     isFirstTurn = false;
     isSplitPossible = false;
 
     switch (playerInput) {
       case HIT:
-        myP.Card.push_back(myShoe.pullCard());
-        myText.printPlayerCard(myP);
-        if (total(myP.Card) > TwentyOne) {
+        myP->Card.push_back(myShoe.pullCard());
+        myText->printPlayerCard(*myP);
+        if (total(myP->Card) > TwentyOne) {
           result = PLAYER_BUST;
           isPlayerTurn = false;
         }
@@ -211,9 +211,9 @@ Outcome Board::playersTurn(BJPlayer& myP, Text& myText, bool& isSplit) {
         break;
       case DOUBLE:
         isPlayerTurn = false;
-        myP.Card.push_back(myShoe.pullCard());
-        myText.printPlayerCard(myP);
-        if (total(myP.Card) > TwentyOne)
+        myP->Card.push_back(myShoe.pullCard());
+        myText->printPlayerCard(*myP);
+        if (total(myP->Card) > TwentyOne)
           result = PLAYER_BUST;
         break;
       case SPLIT:
@@ -228,18 +228,24 @@ Outcome Board::playersTurn(BJPlayer& myP, Text& myText, bool& isSplit) {
   return result;
 }
 
-void Board::performSplitOperation(std::vector<BJPlayer>& myP,
-  std::vector<BJPlayer>::iterator& it) {
-  it = myP.insert(it + 1, BJPlayer(it->Id, true, it->SplitId + "-2"));
-  it--;
-  (it + 1)->playerBet = it->playerBet;
-  (it + 1)->Card.push_back(it->Card[1]);
 
-  it->SplitId = it->SplitId + "-1";
-  it->isSplit = true;
-  it->Card[1] = myShoe.pullCard();
-  (it + 1)->Card.push_back(myShoe.pullCard());
+void Board::performSplitOperation(std::vector<BJPlayer>* myP,
+                                  std::vector<BJPlayer>::iterator* it_ptr) {
+    auto it = *it_ptr;  // Dereference the pointer to get the iterator
+    it = myP->insert(it + 1, BJPlayer(it->Id, true, it->SplitId + "-2"));
+    it--;
+    (it + 1)->playerBet = it->playerBet;
+    (it + 1)->Card.push_back(it->Card[1]);
+
+    it->SplitId = it->SplitId + "-1";
+    it->isSplit = true;
+    it->Card[1] = myShoe.pullCard();
+    (it + 1)->Card.push_back(myShoe.pullCard());
+
+    // Update the pointer to point to the newly inserted element
+    *it_ptr = it + 1;
 }
+
 
 Outcome Board::checkResult(const std::vector<int>& PCard,
   const std::vector<int>& DCard) {

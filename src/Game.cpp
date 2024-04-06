@@ -15,6 +15,7 @@ Game::Game() {
   createRooms();
   createNPCs();
   createItems();
+  startUpInfo();
 }
 
 void Game::play() {

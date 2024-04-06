@@ -1,0 +1,73 @@
+
+std::cout << "Back story:" << std::end;
+
+std::cout
+<< "Life went sideways faster than a marked deck. One minute,"
+<< "my wife and I were pouring our hearts (and our savings)"
+<< "into this bar, the next we were drowning in debt, deeper"
+<< "than a bathtub full of sorrows.  I, the dumb sap, even borrowed"
+<< "from Frankie "Knuckles" Mallick to get it started. Big mistake."
+<< "Business went bust faster than a free beer night, the money"
+<< "dried up quicker than a desert wind, and my stupid gambling"
+<< "habit came crawling back like a bad smell. Now Frankie's"
+<< "boys are at the door, saying I gotta pay up by sunrise,"
+<< "or it's curtains for yours truly."
+<< "Talk about a full house of bad luck."
+std::endl;
+
+std::cout
+<< "And to top it all off, I find out the wife's been playing her own"
+<< "little game. Seems she's been stepping out with none other than"
+<< "Frankie Knuckles himself. That one hurt worse than a royal flush"
+<< "shoved straight in my gut. It's not just my neck on the line anymore,"
+<< "it's the whole damn dream. The dream we built together, brick by brick,"
+<< "on a foundation of love and trust. Now it's all in pieces, scattered like"
+<< "poker chips after a high-stakes game gone wrong.  So here I am, back at"
+<< "the tables, the only hope I got of seeing another sunrise. But the way"
+<< "my luck's been running, that sunrise might just be the light at the"
+<< "end of the tunnel... the wrong end."
+std::endl;
+
+std::cout << "Goal:" << std::endl;
+
+std::cout
+<< "$10,000 sits in your pocket, your last lifeline. It's barely enough to"
+<< "pay Frankie Knuckles, it feels like a mere pittance in the face of your"
+<< "mounting debts. But tonight, it's your war chest. You need $50,000 by sunrise,"
+<< "or you'll be dead. One wrong turn, one bad decision, will be the end of you!"
+<< "The weight of your future rests on this single night."
+std::endl;
+
+
+
+John: I see you got some cigarettes, can you give me some?
+Player: sorry man I would love to give you some, but i only have a few later over.
+John:  please!
+Player: sorry man, if you pay for me give me something with equal amount of value i will give it to you.
+John: how about I give you brass knuckles. That's all i have 
+Player: I don't know if that will do. 
+John: That’s all I got. Please!!
+Player: You know, sure, I'll take the brass knuckles.
+
+
+
+Player: I saw you earlier, running out of the casino with the chips!!
+Homeless guy: No man you didn’t see anything.
+Player: Give me the chips now!!!
+Player: I need those chips.
+Homeless guy: Come fight me for it then
+
+1
+Homeless guy: What do you think I’m Weak!!
+Homeless guy: I have a Knife! What are you gonna do now?
+System: You died! 
+System: You lost the game:
+
+2
+Homeless guy: What do you think I’m Weak!!
+Homeless guy: I have a Knife! What are you gonna do now?
+Player: Who do you know I’m!!
+System: Brass Knuckles out
+Player: You still want to fight:
+Homeless guy:  YA!! Let's go!!
+System: You gained 20k chips

@@ -36,7 +36,8 @@ class Player {
       Thirst(100),
       Drunkness(0),
       CurrentRoom("Outside", "Border", "Casino Entrance", "Parking Lot",
-                  "Border") {
+                  "Border", "The casino entrance flashes with lights, "
+                  "and the parking lot is dimly lit.\n") {
   }
 
   Room getRoom() {
@@ -91,17 +92,20 @@ class Player {
       return;
     }
     std::string input;
+    int num = 0;
     const std::vector<Item> &items = inventory.getItems();
     for (const Item &item : items) {
       int input;
       if (item.getName() == "Beer") {
-        std::cout << "Press 1 to drink the beer\n";
+        std::cout << "(1) Drink the Beer\n";
+        num++;
       }
       if (item.getName() == "Cigarettes") {
-        std::cout << "Press 2 to smoke a cigarette\n";
+        std::cout << "(2) Smoke the Cigarettes\n";
+        num++;
       }
     }
-    std::cin >> input;
+    if (num > 0 ) {std::cout << "(3) Exit Inventory\n"; std::cin >> input;}
     if ((input == "1") && inventory.getItemByName("Beer")) {
       std::cout << "You drank the beer, it went down smooth.\n";
       inventory.removeItemByName("Beer");
