@@ -26,8 +26,6 @@ Certain assumptions have been made:
   * There is a <code>main.cpp</code> found in <code>src/project/</code>.
 
 
-Group F
-
 Renzo Cattoni, Badal Biswa
 
 Badal:
